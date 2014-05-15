@@ -1,14 +1,15 @@
 [user]
-	name = Yusuke Sasajima
-	email = sisijumi@gmail.com
+  name = Yusuke Sasajima
+  email = sisijumi@gmail.com
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 [core]
-	editor = /usr/bin/vim
+  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore
 [alias]
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
-    cl = clone
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  cl = clone

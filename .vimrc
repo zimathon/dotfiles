@@ -8,11 +8,10 @@ set helpheight=999 " ヘルプを画面いっぱいに開く
 set list           " 不可視文字を表示
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮" 不可視文字の表示記号指定
 set expandtab      "タブ入力を複数の空白入力に置き換える
-set tabstop=4      "画面上でタブ文字が占める幅
-set shiftwidth=4   "自動インデントでずれる幅
-set softtabstop=4  "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set tabstop=2      "画面上でタブ文字が占める幅
+set shiftwidth=2   "自動インデントでずれる幅
+set softtabstop=2  "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set autoindent     "改行時に前の行のインデントを継続する
-set smartindent    "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set hlsearch       "検索文字列をハイライトする
 set incsearch      "インクリメンタルサーチを行う
 set ignorecase     "大文字と小文字を区別しない
@@ -34,8 +33,13 @@ set wildmenu        " Better command-line completion
 set showcmd         " Show partial commands in the last line of the screen
 set hlsearch        " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 set ruler
+set clipboard=unnamedplus,unnamed
 syntax on
 "--------------------------------------------------------------------------
+" go
+if $GOROOT !=''
+	set rtp+=$GOROOT/misc/vim
+endif
 " neobundle
 set nocompatible               " Be iMproved
 filetype off                   " Required!
@@ -59,9 +63,7 @@ hi EasyMotionShade  ctermbg=none ctermfg=blue
 
 NeoBundle 'YankRing.vim'
 nmap ,y :YRShow<CR>
-" クリップボード共有
-" http://vim-users.jp/2010/02/hack126/
-set clipboard+=unnamedplus,unnamed
+
 
 NeoBundle 'mbbill/undotree'
 "undo履歴を表示する。? でヘルプを表示
@@ -194,7 +196,8 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'scrooloose/nerdtree' 
 
-filetype plugin indent on     " Required!
+NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
@@ -203,3 +206,5 @@ if neobundle#exists_not_installed_bundles()
     echomsg 'Please execute ":NeoBundleInstall" command.'
 "finish
 endif
+
+

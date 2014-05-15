@@ -1,12 +1,21 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
+# User configuration
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/opt/X11/bin:/Users/sasajimay/.nodebrew/current/bin:/usr/local/mysql/bin:/usr/local/opt/ruby/bin:/usr/bin/rails"
+export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/_go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=~/Library/Python/2.7/bin:$PATH
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+eval "$(rbenv init -)"
+
+# export MANPATH="/usr/local/man:$MANPATH"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -52,12 +61,6 @@ plugins=(git ruby gem)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/opt/X11/bin:/Users/sasajimay/.nodebrew/current/bin:/usr/local/mysql/bin:/usr/local/opt/ruby/bin:/usr/bin/rails"
-export PATH="$HOME/.rbenv/shims:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -73,6 +76,3 @@ export PATH="$HOME/.rbenv/shims:$PATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-eval "$(rbenv init -)"
