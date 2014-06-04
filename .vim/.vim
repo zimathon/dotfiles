@@ -1,1 +1,1 @@
-/Users/sasajimay/dotfiles/.vim
+/Users/develop/dotfiles/.vim
