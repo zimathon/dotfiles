@@ -1,6 +1,6 @@
-ln -s ~/dotfiles/.vimrc ~/.vimrc
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-ln -s ~/dotfiles/.bash_profile ~/.bash_profile
-ln -s ~/dotfiles/.vim ~/.vim
-ln -s ~/dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s -f ~/dotfiles/.vimrc ~/.vimrc
+ln -s -f ~/dotfiles/.bashrc ~/.bashrc
+ln -s -f ~/dotfiles/.bash_profile ~/.bash_profile
+ln -s -f ~/dotfiles/.vim ~/.vim
+ln -s -f ~/dotfiles/.gitconfig ~/.gitconfig
+ln -s -f ~/dotfiles/.zshrc ~/.zshrc
