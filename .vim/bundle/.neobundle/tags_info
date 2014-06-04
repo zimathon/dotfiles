@@ -1,14 +1,15 @@
 YankRing.vim
+alpaca_powertabline
 alpaca_tags
 easybuffer.vim
 emmet-vim
 html5.vim
-neocomplete
 neorspec.vim
 neosnippet
 neosnippet-snippets
 nerdtree
 open-browser.vim
+powerline
 undotree
 unite-rails
 unite-tag

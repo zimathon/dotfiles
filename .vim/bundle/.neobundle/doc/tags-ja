@@ -6,6 +6,13 @@
 <Plug>(ref-forward)	ref.jax	/*<Plug>(ref-forward)*
 <Plug>(ref-keyword)	ref.jax	/*<Plug>(ref-keyword)*
 <Plug>(ref-source-perldoc-switch)	ref-perldoc.jax	/*<Plug>(ref-source-perldoc-switch)*
+alpaca_powerlinetabline-changelog	alpaca_powertagline.jax	/*alpaca_powerlinetabline-changelog*
+alpaca_powerlinetabline-examples	alpaca_powertagline.jax	/*alpaca_powerlinetabline-examples*
+alpaca_powerlinetabline-introduction	alpaca_powertagline.jax	/*alpaca_powerlinetabline-introduction*
+alpaca_powerlinetabline-options	alpaca_powertagline.jax	/*alpaca_powerlinetabline-options*
+alpaca_powerlinetabline.txt	alpaca_powertagline.jax	/*alpaca_powerlinetabline.txt*
+alpaca_powertabline	alpaca_powertagline.jax	/*alpaca_powertabline*
+alpaca_powertabline-contents	alpaca_powertagline.jax	/*alpaca_powertabline-contents*
 b:ref_clojure_classpath	ref-clojure.jax	/*b:ref_clojure_classpath*
 b:ref_clojure_precode	ref-clojure.jax	/*b:ref_clojure_precode*
 b:ref_noenter	ref.jax	/*b:ref_noenter*
