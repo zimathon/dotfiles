@@ -3,7 +3,9 @@ alpaca_powertabline
 alpaca_tags
 easybuffer.vim
 emmet-vim
+gitv
 html5.vim
+neocomplcache
 neorspec.vim
 neosnippet
 neosnippet-snippets
@@ -19,6 +21,7 @@ vim-css3-syntax
 vim-dispatch
 vim-easymotion
 vim-endwise
+vim-fugitive
 vim-javascript
 vim-matchit
 vim-rails
