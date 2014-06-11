@@ -1,6 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
 ZSH_THEME="robbyrussell"
 
 # User configuration
@@ -12,31 +11,9 @@ export GOPATH=$HOME/_go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=~/Library/Python/2.7/bin:$PATH
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-eval "$(rbenv init -)"
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#eval "$(rbenv init -)"
 
-# zaw
-source ~/zsh_plugins/zaw/zaw.zsh
-bindkey '^[d' zaw-cdr
-bindkey '^[g' zaw-git-branches
-bindkey '^[@' zaw-gitdir
-
-function zaw-src-gitdir () {
-  _dir=$(git rev-parse --show-cdup 2>/dev/null)
-  if [ $? -eq 0 ]
-  then
-    candidates=( $(git ls-files ${_dir} | perl -MFile::Basename -nle \
-                                               '$a{dirname $_}++; END{delete $a{"."}; print for sort keys %a}') )
-  fi
-  actions=("zaw-src-gitdir-cd")
-  act_descriptions=("change directory in git repos")
-}
-
-function zaw-src-gitdir-cd () {
-  BUFFER="cd $1"
-  zle accept-line
-}
-zaw-register-src -n gitdir zaw-src-gitdir
 # export MANPATH="/usr/local/man:$MANPATH"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -80,8 +57,8 @@ zaw-register-src -n gitdir zaw-src-gitdir
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git ruby gem)
-
 source $ZSH/oh-my-zsh.sh
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -98,3 +75,16 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+#
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
+source ~/zsh_plugins/zaw/zaw.zsh
+zstyle ':filter-select' case-insensitive yes # 絞り込みをcase-insensitiveに
+bindkey '^xb' zaw-cdr
+bindkey '^x^b' zaw-git-recent-branches
+bindkey '^x^f' zaw-git-files
+bindkey '^x^v' zaw-git-status
+bindkey '^x^r' zaw-history ## 編集ができない?
