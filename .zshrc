@@ -3,21 +3,23 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # User configuration
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/opt/X11/bin:/Users/sasajimay/.nodebrew/current/bin:/usr/local/mysql/bin:/usr/local/opt/ruby/bin:/usr/bin/rails"
 export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/opt/X11/bin:/Users/sasajimay/.nodebrew/current/bin:/usr/local/mysql/bin:/usr/local/opt/ruby/bin:/usr/bin/rails"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/_go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=~/Library/Python/2.7/bin:$PATH
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+# xcode open command 
+alias xo='open -a /Applications/Xcode.app'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
