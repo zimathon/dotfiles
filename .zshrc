@@ -20,6 +20,9 @@ alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 # xcode open command 
 alias xo='open -a /Applications/Xcode.app'
+# hub
+function git(){hub "$@"} # zsh
+alias gpr="git pull-request"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"

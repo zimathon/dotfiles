@@ -34,6 +34,7 @@ set showcmd         " Show partial commands in the last line of the screen
 set hlsearch        " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 set ruler
 set clipboard=unnamed,autoselect
+set relativenumber  " 相対行番号を有効にする
 autocmd FileType * setlocal formatoptions-=ro
 syntax on
 "--------------------------------------------------------------------------
@@ -200,6 +201,10 @@ NeoBundle 'scrooloose/nerdtree'
 
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+
+" git
+NeoBundle 'tpope/vim-fugitive.git'
+NeoBundle 'gregsexton/gitv.git'
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()

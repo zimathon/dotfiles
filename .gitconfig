@@ -1,6 +1,6 @@
 [user]
   name = Yusuke Sasajima
-  email = sisijumi@gmail.com
+  email = zimathon@gmail.com
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
@@ -14,3 +14,5 @@
     br = branch
     cl = clone
     ps = push
+    see = browse↲
+    pr = pull-request
