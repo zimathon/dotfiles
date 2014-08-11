@@ -14,3 +14,8 @@ nnoremap <space>fm :xccmd showPreviousFilesHistoryMenu<CR>
 nnoremap <space>fg :xccmd showGroupFilesMenu<CR>
 
 set clipboard=unnamed
+set cursorline     " カーソル行の背景色を変える
+set cursorcolumn   " カーソル位置のカラムの背景色を変える
+set incsearch      "インクリメンタルサーチを行う
+set ignorecase     "大文字と小文字を区別しない
+set smartcase      "大文字と小文字が混在した言葉で検索を行った場合に限り、大文字と小文字を区別する

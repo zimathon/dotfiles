@@ -35,7 +35,11 @@ set hlsearch        " Highlight searches (use <C-L> to temporarily turn off high
 set ruler
 set clipboard=unnamed,autoselect
 set relativenumber  " 相対行番号を有効にする
-autocmd FileType * setlocal formatoptions-=ro
+augroup auto_comment_off
+  autocmd!
+  autocmd BufEnter * setlocal formatoptions-=r
+  autocmd BufEnter * setlocal formatoptions-=o
+augroup END
 syntax on
 "--------------------------------------------------------------------------
 " go

@@ -16,3 +16,4 @@
     ps = push
     see = browse
     pr = pull-request
+    p = !git push origin `git rev-parse --abbrev-ref HEAD`
