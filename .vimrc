@@ -46,6 +46,8 @@ syntax on
 if $GOROOT !=''
 	set rtp+=$GOROOT/misc/vim
 endif
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
 "--------------------------------------------------------------------------
 " neobundle
 set nocompatible               " Be iMproved
