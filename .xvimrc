@@ -13,6 +13,8 @@ nnoremap <space>fs :xccmd showDocumentItemsMenu<CR>
 nnoremap <space>fm :xccmd showPreviousFilesHistoryMenu<CR>
 nnoremap <space>fg :xccmd showGroupFilesMenu<CR>
 
+inoremap jj <Esc>
+
 set clipboard=unnamed
 set cursorline     " カーソル行の背景色を変える
 set cursorcolumn   " カーソル位置のカラムの背景色を変える

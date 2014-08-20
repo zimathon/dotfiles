@@ -5,7 +5,7 @@ easybuffer.vim
 emmet-vim
 gitv
 html5.vim
-neocomplcache
+neobundle.vim
 neorspec.vim
 neosnippet
 neosnippet-snippets
@@ -17,15 +17,18 @@ unite-rails
 unite-tag
 unite.vim
 vim-browsereload-mac
+vim-colors-solarized
 vim-css3-syntax
 vim-dispatch
 vim-easymotion
 vim-endwise
 vim-fugitive
+vim-hybrid
 vim-javascript
 vim-matchit
 vim-rails
 vim-ref
 vim-ref-ri
+vim-tomorrow-theme
 vimproc
 webapi-vim

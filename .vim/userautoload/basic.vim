@@ -1,11 +1,15 @@
+set number         " 行番号を表示する
+set cursorline     " カーソル行の背景色を変える
+set cursorcolumn   " カーソル位置のカラムの背景色を変える
 set laststatus=2   " ステータス行を常に表示
 set cmdheight=2    " メッセージ表示欄を2行確保
 set showmatch      " 対応する括弧を強調表示
-set showmode       " Insertモード、ReplaceモードまたはVisualモードで最終行にメッセージを表示する
 set helpheight=999 " ヘルプを画面いっぱいに開く
 set list           " 不可視文字を表示
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮" 不可視文字の表示記号指定
-
+set expandtab      "タブ入力を複数の空白入力に置き換える
+set tabstop=2      "画面上でタブ文字が占める幅
+set softtabstop=2  "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set hlsearch       "検索文字列をハイライトする
 set incsearch      "インクリメンタルサーチを行う
 set ignorecase     "大文字と小文字を区別しない
@@ -18,12 +22,30 @@ set autoread       "外部でファイルに変更がされた場合は読みな
 set nobackup       "ファイル保存時にバックアップファイルを作らない
 set noswapfile     "ファイル編集中にスワップファイルを作らない
 set backspace=indent,eol,start "Backspaceキーの影響範囲に制限を設けない
-set whichwrap=b,s,h,l,<,>,[,] "行頭行末の左右移動で行をまたぐ
+set whichwrap=b,s,h,l,<,>,[,]  "行頭行末の左右移動で行をまたぐ
 set scrolloff=8                "上下8行の視界を確保
 set sidescrolloff=16           " 左右スクロール時の視界を確保
 set sidescroll=1               " 左右スクロールは一文字づつ行う
 set nocompatible
+set wildmenu        " Better command-line completion
 set showcmd         " Show partial commands in the last line of the screen
 set hlsearch        " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 set ruler
-set clipboard=unnamedplus,unnamed
+set clipboard=unnamed,autoselect
+augroup auto_comment_off
+  autocmd!
+  autocmd BufEnter * setlocal formatoptions-=r
+  autocmd BufEnter * setlocal formatoptions-=o
+augroup END
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+endfunction
+   
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme       * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+  augroup END
+  call ZenkakuSpace()
+endif
