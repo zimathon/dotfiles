@@ -17,7 +17,6 @@ unite-rails
 unite-tag
 unite.vim
 vim-browsereload-mac
-vim-colors-solarized
 vim-css3-syntax
 vim-dispatch
 vim-easymotion
@@ -26,6 +25,7 @@ vim-fugitive
 vim-hybrid
 vim-javascript
 vim-matchit
+vim-multiple-cursors
 vim-rails
 vim-ref
 vim-ref-ri
