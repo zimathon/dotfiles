@@ -151,6 +151,7 @@ NeoBundle 'tpope/vim-fugitive.git'
 set statusline+=%{fugitive#statusline()}
 
 NeoBundle 'gregsexton/gitv.git'
+NeoBundle 'terryma/vim-multiple-cursors'
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
