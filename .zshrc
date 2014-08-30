@@ -15,6 +15,7 @@ eval "$(rbenv init -)"
 
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vi="vim"
 # xcode open command 
 alias xo='open -a /Applications/Xcode.app'
 # hub
