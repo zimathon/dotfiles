@@ -22,6 +22,7 @@ vim-dispatch
 vim-easymotion
 vim-endwise
 vim-fugitive
+vim-go
 vim-hybrid
 vim-javascript
 vim-matchit
