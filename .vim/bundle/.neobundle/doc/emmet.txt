@@ -158,7 +158,7 @@ You should copy this section and create new buffer, paste and write as
   To jump next point that need to edit, type |<C-Y>n| in insert mode.
 >
   * <div id="foo" class="">foo</div>
-    <div id="bar" class="bar"></li>
+    <div id="bar" class="bar"></div>
 <
   If cursor is at '*', |<C-Y>n| move a cursor into attribute value of div
   specified id as 'foo'. And type again |<C-Y>n| move a cursor into inner of
@@ -169,7 +169,7 @@ You should copy this section and create new buffer, paste and write as
   To jump previous point that need to edit, type |<C-Y>N| in insert mode.
 >
   <div id="foo" class="">foo</div>
-  <div id="bar" class="bar"></li> *
+  <div id="bar" class="bar"></div> *
 <
   If cursor is at '*', |<C-Y>N| move a cursor into div specified id as 'bar'.
   And type again |<C-Y>N| move a cursor into attribute value of 'foo'.
@@ -334,7 +334,10 @@ CUSTOMIZE                                                      *emmet-customize*
 >
   let g:user_emmet_leader_key = '<c-y>'
 <
-  Or if you prefer to map for each actions, then you set each variables.
+  Note that a trailing ',' must be entered, so the resultant keymap is
+  '<c-y>,'.
+  
+  If you prefer to map for each actions, then you set each variables.
 
     'user_emmet_expandabbr_key'
     'user_emmet_expandword_key'
@@ -417,8 +420,8 @@ CUSTOMIZE                                                      *emmet-customize*
   \  },
   \  'javascript' : {
   \    'snippets' : {
-  \      'jq' : "$(function() {\n\t${cursor}${child}\n});",
-  \      'jq:each' : "$.each(arr, function(index, item)\n\t${child}\n});",
+  \      'jq' : "\\$(function() {\n\t${cursor}${child}\n});",
+  \      'jq:each' : "\\$.each(arr, function(index, item)\n\t${child}\n});",
   \      'fn' : "(function() {\n\t${cursor}\n})();",
   \      'tm' : "setTimeout(function() {\n\t${cursor}\n}, 100);",
   \    },

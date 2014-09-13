@@ -26,6 +26,9 @@ set whichwrap=b,s,h,l,<,>,[,]  "行頭行末の左右移動で行をまたぐ
 set scrolloff=8                "上下8行の視界を確保
 set sidescrolloff=16           " 左右スクロール時の視界を確保
 set sidescroll=1               " 左右スクロールは一文字づつ行う
+set tw=0            "勝手に自動改行されるのを回避
+set formatoptions=q
+set paste
 set nocompatible
 set wildmenu        " Better command-line completion
 set showcmd         " Show partial commands in the last line of the screen

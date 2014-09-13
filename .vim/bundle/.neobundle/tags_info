@@ -12,12 +12,13 @@ neosnippet-snippets
 nerdtree
 open-browser.vim
 powerline
+powerline-fontpatcher
 undotree
 unite-rails
 unite-tag
 unite.vim
 vim-browsereload-mac
-vim-colors-solarized
+vim-colorschemes
 vim-css3-syntax
 vim-dispatch
 vim-easymotion

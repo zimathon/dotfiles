@@ -15,11 +15,14 @@ eval "$(rbenv init -)"
 
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-# xcode open command 
+#open command 
 alias xo='open -a /Applications/Xcode.app'
-# hub
+alias rdp='open -a Remote\ Desktop\ Connection'
+# git,hub
 function git(){hub "$@"} # zsh
 alias gpr="git pull-request"
+alias gst="git status -sb"
+alias gvd='git difftool --tool=vimdiff --no-prompt'
 
 plugins=(git ruby gem)
 source $ZSH/oh-my-zsh.sh
@@ -70,3 +73,13 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 bindkey '^xr' peco-cdr
+#tmux auto exe
+if [ -z "$TMUX" ]; then
+    if type tmux >/dev/null 2>&1; then
+        if tmux has-session && tmux list-sessions | /usr/bin/grep -qE '.*]$'; then
+            tmux attach && echo "tmux attached session "
+        else
+            tmux new-session && echo "tmux created new session"
+        fi
+    fi
+fi

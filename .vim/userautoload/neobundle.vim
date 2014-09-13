@@ -1,11 +1,11 @@
 NeoBundle 'Lokaltog/vim-easymotion'
-" ホームポジションに近いキーを使う
+"ホームポジションに近いキーを使う
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-" " 「;」 + 何かにマッピング
+"「;」 + 何かにマッピング
 let g:EasyMotion_leader_key=";"
-" " 1 ストローク選択を優先する
+"1ストローク選択を優先する
 let g:EasyMotion_grouping=1
-" " カラー設定変更
+"カラー設定変更
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 
@@ -63,7 +63,7 @@ endif
 NeoBundle 'tpope/vim-rails', { 'autoload' : {
       \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
 
-NeoBundleLazy 'alpaca-tc/vim-endwise.git', {
+NeoBundleLazy 'alpaca-tc/vim-endwise.git' ,{
       \ 'autoload' : {
       \   'insert' : 1,
       \ }}
@@ -144,6 +144,8 @@ NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
+NeoBundle 'Lokaltog/powerline-fontpatcher'
+NeoBundle 'flazz/vim-colorschemes'
 
 " git
 NeoBundle 'tpope/vim-fugitive.git'
