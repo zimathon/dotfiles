@@ -6,6 +6,8 @@ emmet-vim
 gitv
 html5.vim
 neobundle.vim
+neocomplete
+neomru.vim
 neorspec.vim
 neosnippet
 neosnippet-snippets
@@ -14,6 +16,7 @@ open-browser.vim
 powerline
 powerline-fontpatcher
 undotree
+unite-colorscheme
 unite-rails
 unite-tag
 unite.vim
@@ -24,6 +27,8 @@ vim-dispatch
 vim-easymotion
 vim-endwise
 vim-fugitive
+vim-gitgutter
+vim-go
 vim-hybrid
 vim-javascript
 vim-matchit
@@ -32,4 +37,5 @@ vim-ref
 vim-ref-ri
 vim-tomorrow-theme
 vimproc
+vimproc.vim
 webapi-vim

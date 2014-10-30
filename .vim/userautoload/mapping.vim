@@ -7,7 +7,13 @@ inoremap <C-a> <HOME>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
+inoremap <C-b> <Left>
 inoremap <C-l> <Right>
+inoremap <C-f> <Right>
 inoremap jj <Esc>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
+" 削除キーでyankしない
+nnoremap x "_x
+"nnoremap d "_d
+nnoremap D "_D

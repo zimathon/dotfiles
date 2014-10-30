@@ -1,11 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="wedisagree"
+ZSH_THEME="robbyrussell"
+export LANG=ja_JP.UTF-8
 
 # User configuration
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/opt/X11/bin:/Users/sasajimay/.nodebrew/current/bin:/usr/local/mysql/bin:/usr/local/opt/ruby/bin:/usr/bin/rails"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Users/sasajimay/.nodebrew/current/bin:/usr/local/mysql/bin:/usr/local/opt/ruby/bin:/usr/bin/rails"
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -21,13 +22,11 @@ alias rdp='open -a Remote\ Desktop\ Connection'
 # git,hub
 function git(){hub "$@"} # zsh
 alias gpr="git pull-request"
-alias gst="git status -sb"
+alias gs="git status -sb"
 alias gvd='git difftool --tool=vimdiff --no-prompt'
 
 plugins=(git ruby gem)
 source $ZSH/oh-my-zsh.sh
-
-# export LANG=en_US.UTF-8
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"

@@ -43,7 +43,6 @@ augroup END
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
-   
 if has('syntax')
   augroup ZenkakuSpace
     autocmd!
