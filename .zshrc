@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+ZSH_THEME="wedisagree"
 export LANG=ja_JP.UTF-8
 
 # User configuration
@@ -16,6 +16,7 @@ eval "$(rbenv init -)"
 
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vi='vim'
 #open command 
 alias xo='open -a /Applications/Xcode.app'
 alias rdp='open -a Remote\ Desktop\ Connection'
