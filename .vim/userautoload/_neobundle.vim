@@ -26,7 +26,6 @@ let g:undotree_HighlightChangedText = 1
 let g:undotree_HighlightSyntax = "UnderLined"
 
 NeoBundle 'troydm/easybuffer.vim'
-
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'mac' : 'make -f make_mac.mak',
@@ -39,6 +38,18 @@ if has("lua")
             \   'insert' : 1,
             \ }}
 endif
+if neobundle#is_installed('neocomplete')
+  " neocomplete用設定
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_ignore_case = 1
+  let g:neocomplete#enable_smart_case = 1
+  if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns._ = '\h\w*'
+endif
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 NeoBundle "Shougo/neosnippet"
 NeoBundle "Shougo/neosnippet-snippets"
@@ -60,7 +71,7 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
-NeoBundle 'tpope/vim-rails', { 'autoload' : {
+NeoBundleLazy 'tpope/vim-rails', { 'autoload' : {
       \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
 
 NeoBundleLazy 'alpaca-tc/vim-endwise.git' ,{
@@ -174,7 +185,6 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'tell-k/vim-browsereload-mac'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'taichouchou2/html5.vim'
 NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
