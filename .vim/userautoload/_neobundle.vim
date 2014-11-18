@@ -84,36 +84,37 @@ NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
       \ 'mappings' : ['nx', '%'] }}
 
 NeoBundle 'Shougo/unite.vim'
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+"rails setting must rails root vim start
+noremap <silent> ,urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
+nnoremap <silent> ,urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
+nnoremap <silent> ,urm :<C-u>Unite file_rec/async:app/models/ <CR>
+nnoremap <silent> ,urfm :<C-u>Unite file file/new -input=app/models/ <CR>
+nnoremap <silent> ,urv :<C-u>Unite file_rec/async:app/views/ <CR>
+nnoremap <silent> ,urfv :<C-u>Unite file file/new -input=app/views/ <CR>
+nnoremap <silent> ,urs :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
+nnoremap <silent> ,urfs :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
+nnoremap <silent> ,urj :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
+nnoremap <silent> ,urfj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
+nnoremap <silent> ,uro :<C-u>Unite file_rec/async:config/ <CR>
+nnoremap <silent> ,urfo :<C-u>Unite file file/new -input=config/ <CR>
+nnoremap <silent> ,url :<C-u>Unite file_rec/async:lib/ <CR>
+nnoremap <silent> ,urfl :<C-u>Unite file file/new -input=lib/ <CR>
+nnoremap <silent> ,urr :<C-u>Unite file_rec/async:spec/ <CR>
+nnoremap <silent> ,urfr :<C-u>Unite file file/new -input=spec/ <CR>
+function! s:unite_my_settings()"{{{
+  " ESCでuniteを終了
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction"}}}
+
 NeoBundle 'Shougo/vimproc.vim'
-
-"let g:unite_enable_start_insert=1
-"let g:unite_source_history_yank_enable =1
-"nmap <Space> [unite]
-""スペースキーとaキーでカレントディレクトリを表示
-"nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-""スペースキーとfキーでバッファと最近開いたファイル一覧を表示
-"nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer file_mru<CR>
-""スペースキーとdキーで最近開いたディレクトリを表示
-"nnoremap <silent> [unite]d :<C-u>Unite<Space>directory_mru<CR>
-""スペースキーとbキーでバッファを表示
-"nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
-""スペースキーとrキーでレジストリを表示
-"nnoremap <silent> [unite]r :<C-u>Unite<Space>register<CR>
-""スペースキーとtキーでタブを表示
-"nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
-""スペースキーとhキーでヒストリ/ヤンクを表示
-"nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
-""スペースキーとoキーでoutline
-"nnoremap <silent> [unite]o :<C-u>Unite<Space>outline<CR>
-""スペースキーとENTERキーでfile_rec:!
-"nnoremap <silent> [unite]<CR> :<C-u>Unite<Space>file_rec:!<CR>
-""unite.vimを開いている間のキーマッピング
-"autocmd FileType unite call s:unite_my_settings()
-"function! s:unite_my_settings()"{{{
-"    " ESCでuniteを終了
-"    nmap <buffer> <ESC> <Plug>(unite_exit)
-"endfunction"}}}
-
 NeoBundle 'Shougo/neomru.vim'
 
 NeoBundle 'ujihisa/unite-colorscheme'
