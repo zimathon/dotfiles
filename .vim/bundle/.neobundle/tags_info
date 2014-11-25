@@ -1,8 +1,10 @@
 YankRing.vim
 alpaca_powertabline
 alpaca_tags
+dbext.vim
 easybuffer.vim
 emmet-vim
+errormarker.vim
 gitv
 neobundle.vim
 neocomplete
@@ -14,11 +16,14 @@ nerdtree
 open-browser.vim
 powerline
 powerline-fontpatcher
+rails.vim
+switch.vim
 undotree
 unite-colorscheme
 unite-rails
 unite-tag
 unite.vim
+vim-auto-save
 vim-browsereload-mac
 vim-colorschemes
 vim-css3-syntax
@@ -34,6 +39,7 @@ vim-matchit
 vim-rails
 vim-ref
 vim-ref-ri
+vim-ruby
 vim-tomorrow-theme
 vimproc
 vimproc.vim

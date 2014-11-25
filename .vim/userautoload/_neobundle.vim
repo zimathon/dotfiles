@@ -73,6 +73,7 @@ endif
 
 NeoBundleLazy 'tpope/vim-rails', { 'autoload' : {
       \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
+NeoBundle 'vim-ruby/vim-ruby'
 
 NeoBundleLazy 'alpaca-tc/vim-endwise.git' ,{
       \ 'autoload' : {
@@ -87,12 +88,15 @@ NeoBundle 'Shougo/unite.vim'
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 "rails setting must rails root vim start
+nnoremap <silent> ,f  :<C-u>Unite file_rec/async:!<CR>
 noremap <silent> ,urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
 nnoremap <silent> ,urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
 nnoremap <silent> ,urm :<C-u>Unite file_rec/async:app/models/ <CR>
@@ -109,15 +113,19 @@ nnoremap <silent> ,url :<C-u>Unite file_rec/async:lib/ <CR>
 nnoremap <silent> ,urfl :<C-u>Unite file file/new -input=lib/ <CR>
 nnoremap <silent> ,urr :<C-u>Unite file_rec/async:spec/ <CR>
 nnoremap <silent> ,urfr :<C-u>Unite file file/new -input=spec/ <CR>
-function! s:unite_my_settings()"{{{
-  " ESCでuniteを終了
-  nmap <buffer> <ESC> <Plug>(unite_exit)
-endfunction"}}}
-
-NeoBundle 'Shougo/vimproc.vim'
-NeoBundle 'Shougo/neomru.vim'
-
-NeoBundle 'ujihisa/unite-colorscheme'
+nnoremap <silent> ,urh :<C-u>Unite file_rec/async:helpers/ <CR>
+nnoremap <silent> ,urhr :<C-u>Unite file file/new -input=helpers/ <CR>
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+"------------------------------------
+" Unite-rails.vim
+"------------------------------------
 NeoBundleLazy 'basyura/unite-rails', {
       \ 'depends' : 'Shougo/unite.vim',
       \ 'autoload' : {
@@ -130,29 +138,50 @@ NeoBundleLazy 'basyura/unite-rails', {
       \     'rails/stylesheet', 'rails/view'
       \   ]
       \ }}
+"{{{
+function! UniteRailsSetting()
+  nnoremap <buffer><C-H><C-H><C-H>  :<C-U>Unite rails/view<CR>
+  nnoremap <buffer><C-H><C-H>       :<C-U>Unite rails/model<CR>
+  nnoremap <buffer><C-H>            :<C-U>Unite rails/controller<CR>
+  nnoremap <buffer><C-H>c           :<C-U>Unite rails/config<CR>
+  nnoremap <buffer><C-H>s           :<C-U>Unite rails/spec<CR>
+  nnoremap <buffer><C-H>m           :<C-U>Unite rails/db -input=migrate<CR>
+  nnoremap <buffer><C-H>l           :<C-U>Unite rails/lib<CR>
+  nnoremap <buffer><expr><C-H>g     ':e '.b:rails_root.'/Gemfile<CR>'
+  nnoremap <buffer><expr><C-H>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
+  nnoremap <buffer><expr><C-H>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
+  nnoremap <buffer><C-H>ra          :<C-U>Unite rails/rake<CR>
+  nnoremap <buffer><C-H>h           :<C-U>Unite rails/heroku<CR>
+endfunction
+aug MyAutoCmd
+  au User Rails call UniteRailsSetting()
+aug END
+"}}}
 
+NeoBundle 'romanvbabenko/rails.vim'
+let g:rails_statusline = 0
+
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundleLazy 'taka84u9/vim-ref-ri', {
       \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref']}
       "\ 'autoload': { 'filetypes': g:my.ft.ruby_files } }
-
 NeoBundleLazy 'alpaca-tc/neorspec.vim', {
       \ 'depends' : ['alpaca-tc/vim-rails', 'tpope/vim-dispatch'],
       \ 'autoload' : {
       \   'commands' : ['RSpec', 'RSpecAll', 'RSpecCurrent', 'RSpecNearest', 'RSpecRetry']
       \ }}
-
 NeoBundleLazy 'alpaca-tc/alpaca_tags', {
       \ 'depends': 'Shougo/vimproc',
       \ 'autoload' : {
       \   'commands': ['TagsUpdate', 'TagsSet', 'TagsBundle']
       \ }}
-
 NeoBundleLazy 'tsukkee/unite-tag', {
       \ 'depends' : ['Shougo/unite.vim'],
       \ 'autoload' : {
       \   'unite_sources' : ['tag', 'tag/file', 'tag/include']
       \ }}
-
 NeoBundle 'mattn/emmet-vim'
 let g:user_emmet_mode = 'iv'
 let g:user_emmet_leader_key = '<C-Y>'
@@ -200,10 +229,120 @@ set statusline+=%{fugitive#statusline()}
 NeoBundle 'gregsexton/gitv.git'
 " golang
 NeoBundle 'fatih/vim-go'
-
 NeoBundle 'airblade/vim-gitgutter'
 nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
+
+NeoBundle 'vim-scripts/vim-auto-save'
+let g:auto_save = 1
+" データベース操作
+NeoBundle 'vim-scripts/dbext.vim'
+NeoBundle 'errormarker.vim' 
+
+NeoBundle 'AndrewRadev/switch.vim'
+" ------------------------------------
+" switch.vim
+" ------------------------------------
+nnoremap - :Switch<CR>
+let s:switch_definition = {
+      \ '*': [
+      \   ['is', 'are']
+      \ ],
+      \ 'ruby,eruby,haml' : [
+      \   ['if', 'unless'],
+      \   ['while', 'until'],
+      \   ['.blank?', '.present?'],
+      \   ['include', 'extend'],
+      \   ['class', 'module'],
+      \   ['.inject', '.delete_if'],
+      \   ['.map', '.map!'],
+      \   ['attr_accessor', 'attr_reader', 'attr_writer'],
+      \ ],
+      \ 'Gemfile,Berksfile' : [
+      \   ['=', '<', '<=', '>', '>=', '~>'],
+      \ ],
+      \ 'ruby.application_template' : [
+      \   ['yes?', 'no?'],
+      \   ['lib', 'initializer', 'file', 'vendor', 'rakefile'],
+      \   ['controller', 'model', 'view', 'migration', 'scaffold'],
+      \ ],
+      \ 'erb,html,php' : [
+      \   { '<!--\([a-zA-Z0-9 /]\+\)--></\(div\|ul\|li\|a\)>' : '</\2><!--\1-->' },
+      \ ],
+      \ 'rails' : [
+      \   [100, ':continue', ':information'],
+      \   [101, ':switching_protocols'],
+      \   [102, ':processing'],
+      \   [200, ':ok', ':success'],
+      \   [201, ':created'],
+      \   [202, ':accepted'],
+      \   [203, ':non_authoritative_information'],
+      \   [204, ':no_content'],
+      \   [205, ':reset_content'],
+      \   [206, ':partial_content'],
+      \   [207, ':multi_status'],
+      \   [208, ':already_reported'],
+      \   [226, ':im_used'],
+      \   [300, ':multiple_choices'],
+      \   [301, ':moved_permanently'],
+      \   [302, ':found'],
+      \   [303, ':see_other'],
+      \   [304, ':not_modified'],
+      \   [305, ':use_proxy'],
+      \   [306, ':reserved'],
+      \   [307, ':temporary_redirect'],
+      \   [308, ':permanent_redirect'],
+      \   [400, ':bad_request'],
+      \   [401, ':unauthorized'],
+      \   [402, ':payment_required'],
+      \   [403, ':forbidden'],
+      \   [404, ':not_found'],
+      \   [405, ':method_not_allowed'],
+      \   [406, ':not_acceptable'],
+      \   [407, ':proxy_authentication_required'],
+      \   [408, ':request_timeout'],
+      \   [409, ':conflict'],
+      \   [410, ':gone'],
+      \   [411, ':length_required'],
+      \   [412, ':precondition_failed'],
+      \   [413, ':request_entity_too_large'],
+      \   [414, ':request_uri_too_long'],
+      \   [415, ':unsupported_media_type'],
+      \   [416, ':requested_range_not_satisfiable'],
+      \   [417, ':expectation_failed'],
+      \   [422, ':unprocessable_entity'],
+      \   [423, ':precondition_required'],
+      \   [424, ':too_many_requests'],
+      \   [426, ':request_header_fields_too_large'],
+      \   [500, ':internal_server_error'],
+      \   [501, ':not_implemented'],
+      \   [502, ':bad_gateway'],
+      \   [503, ':service_unavailable'],
+      \   [504, ':gateway_timeout'],
+      \   [505, ':http_version_not_supported'],
+      \   [506, ':variant_also_negotiates'],
+      \   [507, ':insufficient_storage'],
+      \   [508, ':loop_detected'],
+      \   [510, ':not_extended'],
+      \   [511, ':network_authentication_required'],
+      \ ],
+      \ 'rspec': [
+      \   ['describe', 'context', 'specific', 'example'],
+      \   ['before', 'after'],
+      \   ['be_true', 'be_false'],
+      \   ['get', 'post', 'put', 'delete'],
+      \   ['==', 'eql', 'equal'],
+      \   { '\.should_not': '\.should' },
+      \   ['\.to_not', '\.to'],
+      \   { '\([^. ]\+\)\.should\(_not\|\)': 'expect(\1)\.to\2' },
+      \   { 'expect(\([^. ]\+\))\.to\(_not\|\)': '\1.should\2' },
+      \ ],
+      \ 'markdown' : [
+      \   ['[ ]', '[x]']
+      \ ]
+      \ }
+ 
+nnoremap + :call switch#Switch(s:switch_definition)<cr>
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
