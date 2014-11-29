@@ -90,34 +90,39 @@ let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
-nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> <C-u>y :<C-u>Unite history/yank<CR>
+nnoremap <silent> <C-u>b :<C-u>Unite buffer<CR>
+nnoremap <silent> <C-u>f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <C-u>nf :<C-u>Unite file file/new -buffer-name=file<CR>
+nnoremap <silent> <C-u>re :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> <C-u>u :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> <C-u>ud :<C-u>Unite directory_mru buffer<CR>
+nnoremap <silent> <C-u>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent> <C-u>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+nnoremap <silent> <C-u>r  :<C-u>UniteResume search-buffer<CR>
 "rails setting must rails root vim start
-nnoremap <silent> ,f  :<C-u>Unite file_rec/async:!<CR>
-noremap <silent> ,urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
-nnoremap <silent> ,urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
-nnoremap <silent> ,urm :<C-u>Unite file_rec/async:app/models/ <CR>
-nnoremap <silent> ,urfm :<C-u>Unite file file/new -input=app/models/ <CR>
-nnoremap <silent> ,urv :<C-u>Unite file_rec/async:app/views/ <CR>
-nnoremap <silent> ,urfv :<C-u>Unite file file/new -input=app/views/ <CR>
-nnoremap <silent> ,urs :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
-nnoremap <silent> ,urfs :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
-nnoremap <silent> ,urj :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
-nnoremap <silent> ,urfj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
-nnoremap <silent> ,uro :<C-u>Unite file_rec/async:config/ <CR>
-nnoremap <silent> ,urfo :<C-u>Unite file file/new -input=config/ <CR>
-nnoremap <silent> ,url :<C-u>Unite file_rec/async:lib/ <CR>
-nnoremap <silent> ,urfl :<C-u>Unite file file/new -input=lib/ <CR>
-nnoremap <silent> ,urr :<C-u>Unite file_rec/async:spec/ <CR>
-nnoremap <silent> ,urfr :<C-u>Unite file file/new -input=spec/ <CR>
-nnoremap <silent> ,urh :<C-u>Unite file_rec/async:helpers/ <CR>
-nnoremap <silent> ,urhr :<C-u>Unite file file/new -input=helpers/ <CR>
-nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> <C-u>ff  :<C-u>Unite file_rec/async:!<CR>
+nnoremap <silent> <C-u>c :<C-u>Unite file_rec/async:app/controllers/ <CR>
+nnoremap <silent> <C-u>nc :<C-u>Unite file file/new -input=app/controllers/ <CR>
+nnoremap <silent> <C-u>m :<C-u>Unite file_rec/async:app/models/ <CR>
+nnoremap <silent> <C-u>nm :<C-u>Unite file file/new -input=app/models/ <CR>
+nnoremap <silent> <C-u>v :<C-u>Unite file_rec/async:app/views/ <CR>
+nnoremap <silent> <C-u>nv :<C-u>Unite file file/new -input=app/views/ <CR>
+nnoremap <silent> <C-u>s :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
+nnoremap <silent> <C-u>ns :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
+nnoremap <silent> <C-u>j :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
+nnoremap <silent> <C-u>nj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
+nnoremap <silent> <C-u>o :<C-u>Unite file_rec/async:config/ <CR>
+nnoremap <silent> <C-u>no :<C-u>Unite file file/new -input=config/ <CR>
+nnoremap <silent> <C-u>d :<C-u>Unite file_rec/async:db/migrate/ <CR>
+nnoremap <silent> <C-u>nd :<C-u>Unite file file/new -input=db/migrate/ <CR>
+nnoremap <silent> <C-u>l :<C-u>Unite file_rec/async:lib/ <CR>
+nnoremap <silent> <C-u>nl :<C-u>Unite file file/new -input=lib/ <CR>
+nnoremap <silent> <C-u>t :<C-u>Unite file_rec/async:spec/ <CR>
+nnoremap <silent> <C-u>nt :<C-u>Unite file file/new -input=spec/ <CR>
+nnoremap <silent> <C-u>h :<C-u>Unite file_rec/async:helpers/ <CR>
+nnoremap <silent> <C-u>nr :<C-u>Unite file file/new -input=helpers/ <CR>
+nnoremap <silent> <C-u>se :<C-u>Unite file_rec/async:db/seeds.rb <CR>
 if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
@@ -140,18 +145,18 @@ NeoBundleLazy 'basyura/unite-rails', {
       \ }}
 "{{{
 function! UniteRailsSetting()
-  nnoremap <buffer><C-H><C-H><C-H>  :<C-U>Unite rails/view<CR>
-  nnoremap <buffer><C-H><C-H>       :<C-U>Unite rails/model<CR>
-  nnoremap <buffer><C-H>            :<C-U>Unite rails/controller<CR>
-  nnoremap <buffer><C-H>c           :<C-U>Unite rails/config<CR>
-  nnoremap <buffer><C-H>s           :<C-U>Unite rails/spec<CR>
-  nnoremap <buffer><C-H>m           :<C-U>Unite rails/db -input=migrate<CR>
-  nnoremap <buffer><C-H>l           :<C-U>Unite rails/lib<CR>
-  nnoremap <buffer><expr><C-H>g     ':e '.b:rails_root.'/Gemfile<CR>'
-  nnoremap <buffer><expr><C-H>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
-  nnoremap <buffer><expr><C-H>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
-  nnoremap <buffer><C-H>ra          :<C-U>Unite rails/rake<CR>
-  nnoremap <buffer><C-H>h           :<C-U>Unite rails/heroku<CR>
+"  nnoremap <silent><C-u>v           :<C-U>Unite rails/view<CR>
+"  nnoremap <silent><C-u>m           :<C-U>Unite rails/model<CR>
+"  nnoremap <buffer><C-u>c           :<C-U>Unite rails/controller<CR>
+"  nnoremap <buffer><C-u>o           :<C-U>Unite rails/config<CR>
+"  nnoremap <buffer><C-u>s           :<C-U>Unite rails/spec<CR>
+"  nnoremap <buffer><C-u>d           :<C-U>Unite rails/db -input=migrate<CR>
+"  nnoremap <buffer><C-u>l           :<C-U>Unite rails/lib<CR>
+"  nnoremap <buffer><expr><C-u>g     ':e '.b:rails_root.'/Gemfile<CR>'
+"  nnoremap <buffer><expr><C-u>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
+"  nnoremap <buffer><expr><C-u>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
+"  nnoremap <buffer><C-u>ra          :<C-U>Unite rails/rake<CR>
+"  nnoremap <buffer><C-u>h           :<C-U>Unite rails/heroku<CR>
 endfunction
 aug MyAutoCmd
   au User Rails call UniteRailsSetting()
@@ -239,10 +244,10 @@ let g:auto_save = 1
 NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'errormarker.vim' 
 
-NeoBundle 'AndrewRadev/switch.vim'
 " ------------------------------------
 " switch.vim
 " ------------------------------------
+NeoBundle 'AndrewRadev/switch.vim'
 nnoremap - :Switch<CR>
 let s:switch_definition = {
       \ '*': [
@@ -343,6 +348,11 @@ let s:switch_definition = {
       \ }
  
 nnoremap + :call switch#Switch(s:switch_definition)<cr>
+
+NeoBundle 'scrooloose/syntastic'
+"let g:syntastic_mode_map = { 'mode': 'passive',
+"            \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()

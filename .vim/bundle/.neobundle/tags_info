@@ -18,6 +18,7 @@ powerline
 powerline-fontpatcher
 rails.vim
 switch.vim
+syntastic
 undotree
 unite-colorscheme
 unite-rails
