@@ -17,6 +17,8 @@ nnoremap <leader>rv :source $MYVIMRC<CR>
 nnoremap x "_x
 "nnoremap d "_d
 nnoremap D "_D
+nnoremap <silent> bp :bprevious<CR>
+nnoremap <silent> bn :bnext<CR>
 if &term =~ "xterm"
   let &t_ti .= "\e[?2004h"
   let &t_te .= "\e[?2004l"

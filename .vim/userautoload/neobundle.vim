@@ -92,7 +92,7 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 nnoremap <silent> <C-u>y :<C-u>Unite history/yank<CR>
 nnoremap <silent> <C-u>b :<C-u>Unite buffer<CR>
-nnoremap <silent> <C-u>f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <C-u>ff :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> <C-u>nf :<C-u>Unite file file/new -buffer-name=file<CR>
 nnoremap <silent> <C-u>re :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <C-u>u :<C-u>Unite file_mru buffer<CR>
@@ -101,7 +101,7 @@ nnoremap <silent> <C-u>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 nnoremap <silent> <C-u>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 nnoremap <silent> <C-u>r  :<C-u>UniteResume search-buffer<CR>
 "rails setting must rails root vim start
-nnoremap <silent> <C-u>ff  :<C-u>Unite file_rec/async:!<CR>
+nnoremap <silent> <C-u>f  :<C-u>Unite file_rec/async:!<CR>
 nnoremap <silent> <C-u>c :<C-u>Unite file_rec/async:app/controllers/ <CR>
 nnoremap <silent> <C-u>nc :<C-u>Unite file file/new -input=app/controllers/ <CR>
 nnoremap <silent> <C-u>m :<C-u>Unite file_rec/async:app/models/ <CR>
@@ -168,7 +168,6 @@ let g:rails_statusline = 0
 
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundleLazy 'taka84u9/vim-ref-ri', {
       \ 'depends': ['Shougo/unite.vim', 'thinca/vim-ref']}
       "\ 'autoload': { 'filetypes': g:my.ft.ruby_files } }
@@ -182,6 +181,19 @@ NeoBundleLazy 'alpaca-tc/alpaca_tags', {
       \ 'autoload' : {
       \   'commands': ['TagsUpdate', 'TagsSet', 'TagsBundle']
       \ }}
+let g:alpaca_tags#config = {
+                       \    '_' : '-R --sort=yes',
+                       \    'ruby': '--languages=+Ruby',
+                       \ }
+augroup AlpacaTags
+  autocmd!
+  if exists(':AlpacaTags')
+    autocmd BufWritePost Gemfile AlpacaTagsBundle
+    autocmd BufEnter * AlpacaTagsSet
+    autocmd BufWritePost * AlpacaTagsUpdate
+  endif
+augroup END
+
 NeoBundleLazy 'tsukkee/unite-tag', {
       \ 'depends' : ['Shougo/unite.vim'],
       \ 'autoload' : {
@@ -350,9 +362,9 @@ let s:switch_definition = {
 nnoremap + :call switch#Switch(s:switch_definition)<cr>
 
 NeoBundle 'scrooloose/syntastic'
-"let g:syntastic_mode_map = { 'mode': 'passive',
-"            \ 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_exec = 'RBENV_VERSION=2.1.5 /Users/sasajimay/.rbenv/shims/rubocop'
+
+
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
