@@ -67,3 +67,4 @@ if &term =~ "xterm"
   cnoremap <special> <Esc>[200~ <nop>
   cnoremap <special> <Esc>[201~ <nop>
 endif
+autocmd QuickFixCmdPost *grep* cwindow

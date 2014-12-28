@@ -920,7 +920,6 @@ g:switch_definitions	switch.txt	/*g:switch_definitions*
 g:switch_no_builtins	switch.txt	/*g:switch_no_builtins*
 g:unite_abbr_highlight	unite.txt	/*g:unite_abbr_highlight*
 g:unite_candidate_icon	unite.txt	/*g:unite_candidate_icon*
-g:unite_colorscheme_command	unite-colorscheme.txt	/*g:unite_colorscheme_command*
 g:unite_converter_file_directory_width	unite.txt	/*g:unite_converter_file_directory_width*
 g:unite_cursor_line_highlight	unite.txt	/*g:unite_cursor_line_highlight*
 g:unite_cursor_line_time	unite.txt	/*g:unite_cursor_line_time*
@@ -1615,6 +1614,10 @@ syntastic-vim-virtualenv	syntastic.txt	/*syntastic-vim-virtualenv*
 syntastic-ycm	syntastic.txt	/*syntastic-ycm*
 syntastic.txt	syntastic.txt	/*syntastic.txt*
 t,	easymotion.txt	/*t,*
+tmux-navigator	tmux-navigator.txt	/*tmux-navigator*
+tmux-navigator-configuration	tmux-navigator.txt	/*tmux-navigator-configuration*
+tmux-navigator-contents	tmux-navigator.txt	/*tmux-navigator-contents*
+tmux-navigator.txt	tmux-navigator.txt	/*tmux-navigator.txt*
 undotree-bugs	undotree.txt	/*undotree-bugs*
 undotree-changelog	undotree.txt	/*undotree-changelog*
 undotree-config	undotree.txt	/*undotree-config*
@@ -1699,10 +1702,6 @@ unite-action-uri	unite.txt	/*unite-action-uri*
 unite-action-window	unite.txt	/*unite-action-window*
 unite-action-word	unite.txt	/*unite-action-word*
 unite-actions	unite.txt	/*unite-actions*
-unite-colorscheme	unite-colorscheme.txt	/*unite-colorscheme*
-unite-colorscheme-customizing	unite-colorscheme.txt	/*unite-colorscheme-customizing*
-unite-colorscheme-introduction	unite-colorscheme.txt	/*unite-colorscheme-introduction*
-unite-colorscheme.txt	unite-colorscheme.txt	/*unite-colorscheme.txt*
 unite-commands	unite.txt	/*unite-commands*
 unite-contents	unite.txt	/*unite-contents*
 unite-create-filter	unite.txt	/*unite-create-filter*
