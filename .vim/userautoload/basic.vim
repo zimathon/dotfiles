@@ -26,12 +26,16 @@ set whichwrap=b,s,h,l,<,>,[,]  "行頭行末の左右移動で行をまたぐ
 set scrolloff=8                "上下8行の視界を確保
 set sidescrolloff=16           " 左右スクロール時の視界を確保
 set sidescroll=1               " 左右スクロールは一文字づつ行う
+set tw=0            "勝手に自動改行されるのを回避
+set formatoptions=q
+"set paste
+set autoindent
 set nocompatible
 set wildmenu        " Better command-line completion
 set showcmd         " Show partial commands in the last line of the screen
 set hlsearch        " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 set ruler
-set clipboard=unnamed,autoselect
+set clipboard+=unnamed,autoselect
 augroup auto_comment_off
   autocmd!
   autocmd BufEnter * setlocal formatoptions-=r
@@ -40,7 +44,6 @@ augroup END
 function! ZenkakuSpace()
   highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
-   
 if has('syntax')
   augroup ZenkakuSpace
     autocmd!
@@ -49,3 +52,19 @@ if has('syntax')
   augroup END
   call ZenkakuSpace()
 endif
+if &term =~ "xterm"
+  let &t_ti .= "\e[?2004h"
+  let &t_te .= "\e[?2004l"
+  let &pastetoggle = "\e[201~"
+
+  function XTermPasteBegin(ret)
+      set paste
+      return a:ret
+  endfunction
+
+  noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+  cnoremap <special> <Esc>[200~ <nop>
+  cnoremap <special> <Esc>[201~ <nop>
+endif
+autocmd QuickFixCmdPost *grep* cwindow

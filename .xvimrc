@@ -8,6 +8,7 @@ nnoremap gr :tabprevious<CR>
 nnoremap gh :xccmd selectPreviousTab<CR>
 nnoremap gk :xccmd jumpToNextCounterpart<CR>
 nnoremap gj :xccmd jumpToPreviousCounterpart<CR>
+nnoremap gbc :xccmd toggleDebuggerVisibility<CR>
 nnoremap <space>ff :xccmd openQuickly<CR>
 nnoremap <space>fs :xccmd showDocumentItemsMenu<CR>
 nnoremap <space>fm :xccmd showPreviousFilesHistoryMenu<CR>
@@ -20,4 +21,4 @@ set cursorline     " カーソル行の背景色を変える
 set cursorcolumn   " カーソル位置のカラムの背景色を変える
 set incsearch      "インクリメンタルサーチを行う
 set ignorecase     "大文字と小文字を区別しない
-set smartcase      "大文字と小文字が混在した言葉で検索を行った場合に限り、大文字と小文字を区別する
+"set smartcase      "大文字と小文字が混在した言葉で検索を行った場合に限り、大文字と小文字を区別する
