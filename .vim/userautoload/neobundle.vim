@@ -406,8 +406,6 @@ nnoremap + :call switch#Switch(s:switch_definition)<cr>
 
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_ruby_rubocop_exec = 'RBENV_VERSION=2.1.5 /Users/sasajimay/.rbenv/shims/rubocop'
-NeoBundle 'christoomey/vim-tmux-navigator'
-
 
 " Installation check.
 if neobundle#exists_not_installed_bundles()
