@@ -40,7 +40,6 @@ vim-rails
 vim-ref
 vim-ref-ri
 vim-ruby
-vim-tmux-navigator
 vim-tomorrow-theme
 vimproc
 webapi-vim

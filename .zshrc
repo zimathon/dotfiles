@@ -11,6 +11,7 @@ export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=~/Library/Python/2.7/bin:$PATH
+export JAVA_HOME=`/usr/libexec/java_home`
 
 eval "$(rbenv init -)"
 
