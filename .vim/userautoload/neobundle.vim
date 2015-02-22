@@ -279,6 +279,9 @@ nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 
 NeoBundle 'vim-scripts/vim-auto-save'
 let g:auto_save = 1
+let g:session_autoload = 'no'                                                      
+let g:session_autosave = 'yes'                                                     
+let g:session_autosave_periodic = 3  
 " データベース操作
 NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'errormarker.vim' 
@@ -406,7 +409,6 @@ nnoremap + :call switch#Switch(s:switch_definition)<cr>
 
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_ruby_rubocop_exec = 'RBENV_VERSION=2.1.5 /Users/sasajimay/.rbenv/shims/rubocop'
-
 " Installation check.
 if neobundle#exists_not_installed_bundles()
     echomsg 'Not installed bundles : ' .

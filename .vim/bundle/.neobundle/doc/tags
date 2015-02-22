@@ -783,6 +783,7 @@ g:easybuffer_toggle_position	easybuffer.txt	/*g:easybuffer_toggle_position*
 g:easybuffer_use_sequence	easybuffer.txt	/*g:easybuffer_use_sequence*
 g:easybuffer_use_zoomwintab	easybuffer.txt	/*g:easybuffer_use_zoomwintab*
 g:easybuffer_vertical_width	easybuffer.txt	/*g:easybuffer_vertical_width*
+g:neobundle#cache_file	neobundle.txt	/*g:neobundle#cache_file*
 g:neobundle#default_options	neobundle.txt	/*g:neobundle#default_options*
 g:neobundle#default_site	neobundle.txt	/*g:neobundle#default_site*
 g:neobundle#enable_name_conversion	neobundle.txt	/*g:neobundle#enable_name_conversion*
@@ -1098,6 +1099,7 @@ neobundle#has_fresh_cache()	neobundle.txt	/*neobundle#has_fresh_cache()*
 neobundle#hooks	neobundle.txt	/*neobundle#hooks*
 neobundle#is_installed()	neobundle.txt	/*neobundle#is_installed()*
 neobundle#is_sourced()	neobundle.txt	/*neobundle#is_sourced()*
+neobundle#load_toml()	neobundle.txt	/*neobundle#load_toml()*
 neobundle#local()	neobundle.txt	/*neobundle#local()*
 neobundle#rc()	neobundle.txt	/*neobundle#rc()*
 neobundle#source()	neobundle.txt	/*neobundle#source()*
@@ -1614,10 +1616,6 @@ syntastic-vim-virtualenv	syntastic.txt	/*syntastic-vim-virtualenv*
 syntastic-ycm	syntastic.txt	/*syntastic-ycm*
 syntastic.txt	syntastic.txt	/*syntastic.txt*
 t,	easymotion.txt	/*t,*
-tmux-navigator	tmux-navigator.txt	/*tmux-navigator*
-tmux-navigator-configuration	tmux-navigator.txt	/*tmux-navigator-configuration*
-tmux-navigator-contents	tmux-navigator.txt	/*tmux-navigator-contents*
-tmux-navigator.txt	tmux-navigator.txt	/*tmux-navigator.txt*
 undotree-bugs	undotree.txt	/*undotree-bugs*
 undotree-changelog	undotree.txt	/*undotree-changelog*
 undotree-config	undotree.txt	/*undotree-config*
