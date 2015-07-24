@@ -269,6 +269,7 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tpope/vim-fugitive.git'
 " ステータス行に現在のgitブランチを表示する
 set statusline+=%{fugitive#statusline()}
+set diffopt+=vertical
 
 NeoBundle 'gregsexton/gitv.git'
 " golang
@@ -410,6 +411,8 @@ nnoremap + :call switch#Switch(s:switch_definition)<cr>
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_ruby_rubocop_exec = 'RBENV_VERSION=2.1.5 /Users/sasajimay/.rbenv/shims/rubocop'
 " Installation check.
+NeoBundle 'derekwyatt/vim-scala'
+
 if neobundle#exists_not_installed_bundles()
     echomsg 'Not installed bundles : ' .
                     \ string(neobundle#get_not_installed_bundle_names())

@@ -15,11 +15,12 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<CR>
 nnoremap <leader>rv :source $MYVIMRC<CR>
 " 削除キーでyankしない
 nnoremap x "_x
-nnoremap d "_d
+" nnoremap d "_d
 nnoremap D "_D
-nnoremap Y y$
-nnoremap <silent> bp :bprevious<CR>
+j
 nnoremap <silent> bn :bnext<CR>
+nnoremap n nzz
+nnoremap N Nzz
 if &term =~ "xterm"
   let &t_ti .= "\e[?2004h"
   let &t_te .= "\e[?2004l"
