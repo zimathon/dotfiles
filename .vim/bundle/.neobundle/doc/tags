@@ -47,6 +47,8 @@
 'g:go_play_browser_command'	vim-go.txt	/*'g:go_play_browser_command'*
 'g:go_play_open_browser'	vim-go.txt	/*'g:go_play_open_browser'*
 'g:go_snippet_engine'	vim-go.txt	/*'g:go_snippet_engine'*
+'g:scala_use_builtin_tagbar_defs'	scala.txt	/*'g:scala_use_builtin_tagbar_defs'*
+'g:scala_use_default_keymappings'	scala.txt	/*'g:scala_use_default_keymappings'*
 'g:syntastic_<filetype>_checkers'	syntastic.txt	/*'g:syntastic_<filetype>_checkers'*
 'loaded_nerd_tree'	NERD_tree.txt	/*'loaded_nerd_tree'*
 'syntastic_<filetype>_<checker>_<option>'	syntastic.txt	/*'syntastic_<filetype>_<checker>_<option>'*
@@ -214,6 +216,7 @@
 :Ref	ref.txt	/*:Ref*
 :Ref-option	ref.txt	/*:Ref-option*
 :RefHistory	ref.txt	/*:RefHistory*
+:SortScalaImports	scala.txt	/*:SortScalaImports*
 :Switch	switch.txt	/*:Switch*
 :SyntasticCheck	syntastic.txt	/*:SyntasticCheck*
 :SyntasticInfo	syntastic.txt	/*:SyntasticInfo*
@@ -1570,6 +1573,15 @@ s_<Plug>(neosnippet_expand)	neosnippet.txt	/*s_<Plug>(neosnippet_expand)*
 s_<Plug>(neosnippet_expand_or_jump)	neosnippet.txt	/*s_<Plug>(neosnippet_expand_or_jump)*
 s_<Plug>(neosnippet_jump)	neosnippet.txt	/*s_<Plug>(neosnippet_jump)*
 s_<Plug>(neosnippet_jump_or_expand)	neosnippet.txt	/*s_<Plug>(neosnippet_jump_or_expand)*
+scala	scala.txt	/*scala*
+scala-commands	scala.txt	/*scala-commands*
+scala-credits	scala.txt	/*scala-credits*
+scala-leader-fr	scala.txt	/*scala-leader-fr*
+scala-leader-fs	scala.txt	/*scala-leader-fs*
+scala-leader-ft	scala.txt	/*scala-leader-ft*
+scala-mappings	scala.txt	/*scala-mappings*
+scala-options	scala.txt	/*scala-options*
+scala.txt	scala.txt	/*scala.txt*
 sqlanywhere	dbext.txt	/*sqlanywhere*
 sqlite	dbext.txt	/*sqlite*
 sqlsrv	dbext.txt	/*sqlsrv*

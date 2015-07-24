@@ -1,6 +1,6 @@
 set number         " 行番号を表示する
 set cursorline     " カーソル行の背景色を変える
-set cursorcolumn   " カーソル位置のカラムの背景色を変える
+"set cursorcolumn   " カーソル位置のカラムの背景色を変える
 set laststatus=2   " ステータス行を常に表示
 set cmdheight=2    " メッセージ表示欄を2行確保
 set showmatch      " 対応する括弧を強調表示
@@ -31,9 +31,11 @@ set formatoptions=q
 "set paste
 set autoindent
 set nocompatible
+nnoremap n nzz
+nnoremap N Nzz
 set wildmenu        " Better command-line completion
 set showcmd         " Show partial commands in the last line of the screen
-set hlsearch        " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
+set hlsearch        " Highlight searches (use <C-L> to temporarily turn off highlighting; see he
 set ruler
 set clipboard+=unnamed,autoselect
 augroup auto_comment_off
@@ -68,3 +70,8 @@ if &term =~ "xterm"
   cnoremap <special> <Esc>[201~ <nop>
 endif
 autocmd QuickFixCmdPost *grep* cwindow
+augroup vimrc-auto-cursorline
+  autocmd!
+  autocmd CursorMoved,CursorMovedI,WinLeave * setlocal nocursorcolumn
+  autocmd CursorHold,CursorHoldI * setlocal cursorcolumn
+augroup ND

@@ -40,6 +40,7 @@ vim-rails
 vim-ref
 vim-ref-ri
 vim-ruby
+vim-scala
 vim-tomorrow-theme
 vimproc
 webapi-vim

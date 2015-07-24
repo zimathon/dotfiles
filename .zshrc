@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="wedisagree"
+ZSH_THEME="theunraveler"
 export LANG=ja_JP.UTF-8
 
 # User configuration
@@ -13,14 +13,27 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=~/Library/Python/2.7/bin:$PATH
 export JAVA_HOME=`/usr/libexec/java_home`
 
+setopt share_history #履歴を複数の端末で共有する
+setopt hist_ignore_dups #直前と同じコマンドの場合は履歴に追加しない
+setopt hist_ignore_all_dups #重複するコマンドは古い法を削除する
+setopt append_history #複数のzshを同時に使用した際に履歴ファイルを上書きせず追加する
+
 eval "$(rbenv init -)"
 
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi='vim'
+alias lgp='lgtm -m | pbcopy'
+alias wintounix='tr \\ /'
 #open command 
 alias xo='open -a /Applications/Xcode.app'
 alias rdp='open -a Remote\ Desktop\ Connection'
+srvcd() {
+  cd "$(echo "$1" | tr \\ /)"
+}
+srvopen() {
+    open "$(echo "$1" | tr \\ /)"
+}
 # git,hub
 function git(){hub "$@"} # zsh
 alias gpr="git pull-request"
@@ -84,3 +97,16 @@ if [ -z "$TMUX" ]; then
         fi
     fi
 fi
+autoload -Uz add-zsh-hook
+#tmux pane ssh
+function tmux_ssh_preexec() {
+    local command=$1
+    if [[ "$command" = *ssh* ]]; then
+        tmux setenv TMUX_SSH_CMD_$(tmux display -p "#I") $command
+    fi
+}
+add-zsh-hook preexec tmux_ssh_preexec
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+source ~/.tmuxinator/tmuxinator.zsh
