@@ -248,18 +248,7 @@ augroup EmmitVim
   autocmd FileType * let g:user_emmet_settings.indentation = '               '[:&tabstop]
 augroup END
 
-NeoBundle 'open-browser.vim'
-" カーソル下のURLをブラウザで開く
-nmap <Leader>o <Plug>(openbrowser-open)
-vmap <Leader>o <Plug>(openbrowser-open)
-" ググる
-nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
-
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'tell-k/vim-browsereload-mac'
-NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'scrooloose/nerdtree' 
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'Lokaltog/powerline-fontpatcher'
@@ -283,6 +272,7 @@ let g:auto_save = 1
 let g:session_autoload = 'no'                                                      
 let g:session_autosave = 'yes'                                                     
 let g:session_autosave_periodic = 3  
+let g:auto_save_in_insert_mode = 0
 " データベース操作
 NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'errormarker.vim' 
