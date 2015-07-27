@@ -12,8 +12,6 @@ neomru.vim
 neorspec.vim
 neosnippet
 neosnippet-snippets
-nerdtree
-open-browser.vim
 powerline
 powerline-fontpatcher
 rails.vim
@@ -24,9 +22,7 @@ unite-rails
 unite-tag
 unite.vim
 vim-auto-save
-vim-browsereload-mac
 vim-colorschemes
-vim-css3-syntax
 vim-dispatch
 vim-easymotion
 vim-endwise
@@ -43,4 +39,3 @@ vim-ruby
 vim-scala
 vim-tomorrow-theme
 vimproc
-webapi-vim
