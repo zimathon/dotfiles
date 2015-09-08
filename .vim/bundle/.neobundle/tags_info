@@ -13,7 +13,6 @@ neorspec.vim
 neosnippet
 neosnippet-snippets
 powerline
-powerline-fontpatcher
 rails.vim
 switch.vim
 syntastic
@@ -25,6 +24,7 @@ vim-auto-save
 vim-colorschemes
 vim-dispatch
 vim-easymotion
+vim-elixir
 vim-endwise
 vim-fugitive
 vim-gitgutter

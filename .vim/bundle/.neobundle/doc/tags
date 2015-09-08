@@ -99,6 +99,8 @@
 (go-test-func)	vim-go.txt	/*(go-test-func)*
 (go-vet)	vim-go.txt	/*(go-vet)*
 /MyProjectDir/	dbext.txt	/*\/MyProjectDir\/*
+/MyProjectDir/	dbext.txt	/*\/MyProjectDir\/*
+/MyProjectDir2/	dbext.txt	/*\/MyProjectDir2\/*
 /MyProjectDir2/	dbext.txt	/*\/MyProjectDir2\/*
 :AlpacaTagsBundle	alpaca_tags.txt	/*:AlpacaTagsBundle*
 :AlpacaTagsCleanCache	alpaca_tags.txt	/*:AlpacaTagsCleanCache*
@@ -199,7 +201,6 @@
 :NeoCompleteEnable	neocomplete.txt	/*:NeoCompleteEnable*
 :NeoCompleteLock	neocomplete.txt	/*:NeoCompleteLock*
 :NeoCompleteSetFileType	neocomplete.txt	/*:NeoCompleteSetFileType*
-:NeoCompleteSyntaxMakeCache	neocomplete.txt	/*:NeoCompleteSyntaxMakeCache*
 :NeoCompleteTagMakeCache	neocomplete.txt	/*:NeoCompleteTagMakeCache*
 :NeoCompleteToggle	neocomplete.txt	/*:NeoCompleteToggle*
 :NeoCompleteUnlock	neocomplete.txt	/*:NeoCompleteUnlock*
@@ -826,7 +827,6 @@ g:neocomplete#sources#member#input_patterns	neocomplete.txt	/*g:neocomplete#sour
 g:neocomplete#sources#member#prefix_patterns	neocomplete.txt	/*g:neocomplete#sources#member#prefix_patterns*
 g:neocomplete#sources#omni#functions	neocomplete.txt	/*g:neocomplete#sources#omni#functions*
 g:neocomplete#sources#omni#input_patterns	neocomplete.txt	/*g:neocomplete#sources#omni#input_patterns*
-g:neocomplete#sources#syntax#min_keyword_length	neocomplete.txt	/*g:neocomplete#sources#syntax#min_keyword_length*
 g:neocomplete#sources#tags#cache_limit_size	neocomplete.txt	/*g:neocomplete#sources#tags#cache_limit_size*
 g:neocomplete#sources#vim#complete_functions	neocomplete.txt	/*g:neocomplete#sources#vim#complete_functions*
 g:neocomplete#tags_filter_patterns	neocomplete.txt	/*g:neocomplete#tags_filter_patterns*
@@ -840,6 +840,7 @@ g:neomru#file_mru_ignore_pattern	neomru.txt	/*g:neomru#file_mru_ignore_pattern*
 g:neomru#file_mru_limit	neomru.txt	/*g:neomru#file_mru_limit*
 g:neomru#file_mru_path	neomru.txt	/*g:neomru#file_mru_path*
 g:neomru#filename_format	neomru.txt	/*g:neomru#filename_format*
+g:neomru#follow_links	neomru.txt	/*g:neomru#follow_links*
 g:neomru#time_format	neomru.txt	/*g:neomru#time_format*
 g:neomru#update_interval	neomru.txt	/*g:neomru#update_interval*
 g:neosnippet#data_directory	neosnippet.txt	/*g:neosnippet#data_directory*
@@ -864,6 +865,7 @@ g:ref_erlang_cmd	ref-erlang.txt	/*g:ref_erlang_cmd*
 g:ref_erlang_man_dir	ref-erlang.txt	/*g:ref_erlang_man_dir*
 g:ref_man_cmd	ref-man.txt	/*g:ref_man_cmd*
 g:ref_man_lang	ref-man.txt	/*g:ref_man_lang*
+g:ref_man_manpath	ref-man.txt	/*g:ref_man_manpath*
 g:ref_no_default_key_mappings	ref.txt	/*g:ref_no_default_key_mappings*
 g:ref_noenter	ref.txt	/*g:ref_noenter*
 g:ref_open	ref.txt	/*g:ref_open*
@@ -878,6 +880,10 @@ g:ref_refe_cmd	ref-refe.txt	/*g:ref_refe_cmd*
 g:ref_refe_encoding	ref-refe.txt	/*g:ref_refe_encoding*
 g:ref_refe_rsense_cmd	ref-refe.txt	/*g:ref_refe_rsense_cmd*
 g:ref_refe_version	ref-refe.txt	/*g:ref_refe_version*
+g:ref_source_webdict_cmd	ref-webdict.txt	/*g:ref_source_webdict_cmd*
+g:ref_source_webdict_encoding	ref-webdict.txt	/*g:ref_source_webdict_encoding*
+g:ref_source_webdict_sites	ref-webdict.txt	/*g:ref_source_webdict_sites*
+g:ref_source_webdict_use_cache	ref-webdict.txt	/*g:ref_source_webdict_use_cache*
 g:ref_use_vimproc	ref.txt	/*g:ref_use_vimproc*
 g:ruby_indent_access_modifier_style	vim-ruby.txt	/*g:ruby_indent_access_modifier_style*
 g:stderrencoding	vimproc.txt	/*g:stderrencoding*
@@ -928,7 +934,7 @@ g:unite_source_grep_default_opts	unite.txt	/*g:unite_source_grep_default_opts*
 g:unite_source_grep_encoding	unite.txt	/*g:unite_source_grep_encoding*
 g:unite_source_grep_recursive_opt	unite.txt	/*g:unite_source_grep_recursive_opt*
 g:unite_source_grep_search_word_highlight	unite.txt	/*g:unite_source_grep_search_word_highlight*
-g:unite_source_history_save_clipboard	unite.txt	/*g:unite_source_history_save_clipboard*
+g:unite_source_history_save_registers	unite.txt	/*g:unite_source_history_save_registers*
 g:unite_source_history_yank_enable	unite.txt	/*g:unite_source_history_yank_enable*
 g:unite_source_history_yank_file	unite.txt	/*g:unite_source_history_yank_file*
 g:unite_source_history_yank_limit	unite.txt	/*g:unite_source_history_yank_limit*
@@ -948,6 +954,7 @@ g:unite_source_tag_max_fname_length	unite-tag.txt	/*g:unite_source_tag_max_fname
 g:unite_source_tag_max_name_length	unite-tag.txt	/*g:unite_source_tag_max_name_length*
 g:unite_source_tag_relative_fname	unite-tag.txt	/*g:unite_source_tag_relative_fname*
 g:unite_source_tag_show_fname	unite-tag.txt	/*g:unite_source_tag_show_fname*
+g:unite_source_tag_show_kind	unite-tag.txt	/*g:unite_source_tag_show_kind*
 g:unite_source_tag_show_location	unite-tag.txt	/*g:unite_source_tag_show_location*
 g:unite_source_tag_strict_truncate_string	unite-tag.txt	/*g:unite_source_tag_strict_truncate_string*
 g:unite_source_vimgrep_search_word_highlight	unite.txt	/*g:unite_source_vimgrep_search_word_highlight*
@@ -1225,7 +1232,6 @@ neocomplete-source-dictionary	neocomplete.txt	/*neocomplete-source-dictionary*
 neocomplete-source-file	neocomplete.txt	/*neocomplete-source-file*
 neocomplete-source-member	neocomplete.txt	/*neocomplete-source-member*
 neocomplete-source-omni	neocomplete.txt	/*neocomplete-source-omni*
-neocomplete-source-syntax	neocomplete.txt	/*neocomplete-source-syntax*
 neocomplete-source-tag	neocomplete.txt	/*neocomplete-source-tag*
 neocomplete-sources	neocomplete.txt	/*neocomplete-sources*
 neocomplete-sources-COMMANDS	neocomplete.txt	/*neocomplete-sources-COMMANDS*
@@ -1234,6 +1240,7 @@ neocomplete-sources-neco-vim	neocomplete.txt	/*neocomplete-sources-neco-vim*
 neocomplete-sources-neosnippet	neocomplete.txt	/*neocomplete-sources-neosnippet*
 neocomplete-sources-ultisnips	neocomplete.txt	/*neocomplete-sources-ultisnips*
 neocomplete-sources-variables	neocomplete.txt	/*neocomplete-sources-variables*
+neocomplete-syntax	neocomplete.txt	/*neocomplete-syntax*
 neocomplete-unite-source-neocomplete	neocomplete.txt	/*neocomplete-unite-source-neocomplete*
 neocomplete-unite-sources	neocomplete.txt	/*neocomplete-unite-sources*
 neocomplete-user-sources	neocomplete.txt	/*neocomplete-user-sources*
@@ -1507,6 +1514,13 @@ ref-source-attr-normalize()	ref.txt	/*ref-source-attr-normalize()*
 ref-source-attr-opened()	ref.txt	/*ref-source-attr-opened()*
 ref-sources	ref.txt	/*ref-sources*
 ref-viewer	ref.txt	/*ref-viewer*
+ref-webdict	ref-webdict.txt	/*ref-webdict*
+ref-webdict-arguments	ref-webdict.txt	/*ref-webdict-arguments*
+ref-webdict-changelog	ref-webdict.txt	/*ref-webdict-changelog*
+ref-webdict-contents	ref-webdict.txt	/*ref-webdict-contents*
+ref-webdict-customizing	ref-webdict.txt	/*ref-webdict-customizing*
+ref-webdict-introduction	ref-webdict.txt	/*ref-webdict-introduction*
+ref-webdict.txt	ref-webdict.txt	/*ref-webdict.txt*
 ref.txt	ref.txt	/*ref.txt*
 ref.vim	ref.txt	/*ref.vim*
 ruby-[M	vim-ruby.txt	/*ruby-[M*
@@ -1707,6 +1721,7 @@ unite-filter-attribute-filter	unite.txt	/*unite-filter-attribute-filter*
 unite-filter-attribute-name	unite.txt	/*unite-filter-attribute-name*
 unite-filter-attribute-pattern	unite.txt	/*unite-filter-attribute-pattern*
 unite-filter-attributes	unite.txt	/*unite-filter-attributes*
+unite-filter-converter_abbr_word	unite.txt	/*unite-filter-converter_abbr_word*
 unite-filter-converter_default	unite.txt	/*unite-filter-converter_default*
 unite-filter-converter_file_directory	unite.txt	/*unite-filter-converter_file_directory*
 unite-filter-converter_full_path	unite.txt	/*unite-filter-converter_full_path*
@@ -1732,6 +1747,7 @@ unite-filter-sorter_length	unite.txt	/*unite-filter-sorter_length*
 unite-filter-sorter_nothing	unite.txt	/*unite-filter-sorter_nothing*
 unite-filter-sorter_rank	unite.txt	/*unite-filter-sorter_rank*
 unite-filter-sorter_reverse	unite.txt	/*unite-filter-sorter_reverse*
+unite-filter-sorter_selecta	unite.txt	/*unite-filter-sorter_selecta*
 unite-filter-sorter_word	unite.txt	/*unite-filter-sorter_word*
 unite-filter-variables	unite.txt	/*unite-filter-variables*
 unite-filters	unite.txt	/*unite-filters*
@@ -1866,7 +1882,6 @@ unite-source-attribute-hooks-on_post_filter	unite.txt	/*unite-source-attribute-h
 unite-source-attribute-hooks-on_pre_filter	unite.txt	/*unite-source-attribute-hooks-on_pre_filter*
 unite-source-attribute-hooks-on_pre_init	unite.txt	/*unite-source-attribute-hooks-on_pre_init*
 unite-source-attribute-hooks-on_syntax	unite.txt	/*unite-source-attribute-hooks-on_syntax*
-unite-source-attribute-is_grouped	unite.txt	/*unite-source-attribute-is_grouped*
 unite-source-attribute-is_listed	unite.txt	/*unite-source-attribute-is_listed*
 unite-source-attribute-is_volatile	unite.txt	/*unite-source-attribute-is_volatile*
 unite-source-attribute-matchers	unite.txt	/*unite-source-attribute-matchers*
