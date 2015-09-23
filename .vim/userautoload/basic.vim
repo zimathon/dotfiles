@@ -9,6 +9,12 @@ set list           " 不可視文字を表示
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮" 不可視文字の表示記号指定
 set expandtab      "タブ入力を複数の空白入力に置き換える
 set tabstop=2      "画面上でタブ文字が占める幅
+set shiftwidth=2
+augroup vimrc
+        autocmd! FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
+        autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+        autocmd! FileType css  setlocal shiftwidth=4 tabstop=2 softtabstop=2
+augroup END
 set softtabstop=2  "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set hlsearch       "検索文字列をハイライトする
 set incsearch      "インクリメンタルサーチを行う

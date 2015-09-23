@@ -9,23 +9,6 @@ let g:EasyMotion_grouping=1
 hi EasyMotionTarget ctermbg=none ctermfg=red
 hi EasyMotionShade  ctermbg=none ctermfg=blue
 
-NeoBundle 'YankRing.vim'
-nmap ;y :YRShow<CR>
-
-NeoBundle 'mbbill/undotree'
-"undo履歴を表示する。? でヘルプを表示
-nmap <Leader>u :UndotreeToggle<CR>
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_WindowLayout = 'topleft'
-let g:undotree_SplitWidth = 35
-let g:undotree_diffAutoOpen = 1
-let g:undotree_diffpanelHeight = 25
-let g:undotree_RelativeTimestamp = 1
-let g:undotree_TreeNodeShape = '*'
-let g:undotree_HighlightChangedText = 1
-let g:undotree_HighlightSyntax = "UnderLined"
-
-NeoBundle 'troydm/easybuffer.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'mac' : 'make -f make_mac.mak',
@@ -38,7 +21,6 @@ if has("lua")
             \ }}
 endif
 if neobundle#is_installed('neocomplete')
-  " neocomplete用設定
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplete#enable_ignore_case = 1
   let g:neocomplete#enable_smart_case = 1
@@ -46,6 +28,10 @@ if neobundle#is_installed('neocomplete')
     let g:neocomplete#keyword_patterns = {}
   endif
   let g:neocomplete#keyword_patterns._ = '\h\w*'
+  let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'scala' : $HOME . '/.vim/dict/scala.dict',
+    \ }
 endif
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
@@ -53,6 +39,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "------------------------------------
 " neosnippet
 "------------------------------------
+NeoBundle 'Shougo/neocomplcache'
 NeoBundle "Shougo/neosnippet"
 NeoBundle "Shougo/neosnippet-snippets"
 " Plugin key-mappings.
@@ -185,6 +172,11 @@ aug MyAutoCmd
   au User Rails call UniteRailsSetting()
 aug END
 "}}}
+NeoBundleLazy 'tsukkee/unite-tag', {
+      \ 'depends' : ['Shougo/unite.vim'],
+      \ 'autoload' : {
+      \   'unite_sources' : ['tag', 'tag/file', 'tag/include']
+      \ }}
 
 NeoBundle 'romanvbabenko/rails.vim'
 let g:rails_statusline = 0
@@ -221,11 +213,6 @@ augroup AlpacaTags
   endif
 augroup END
 
-NeoBundleLazy 'tsukkee/unite-tag', {
-      \ 'depends' : ['Shougo/unite.vim'],
-      \ 'autoload' : {
-      \   'unite_sources' : ['tag', 'tag/file', 'tag/include']
-      \ }}
 NeoBundle 'mattn/emmet-vim'
 let g:user_emmet_mode = 'iv'
 let g:user_emmet_leader_key = '<C-Y>'
@@ -251,7 +238,6 @@ augroup END
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
-NeoBundle 'Lokaltog/powerline-fontpatcher'
 NeoBundle 'flazz/vim-colorschemes'
 
 " git
@@ -262,7 +248,6 @@ set diffopt+=vertical
 
 NeoBundle 'gregsexton/gitv.git'
 " golang
-NeoBundle 'fatih/vim-go'
 NeoBundle 'airblade/vim-gitgutter'
 nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
@@ -401,7 +386,10 @@ nnoremap + :call switch#Switch(s:switch_definition)<cr>
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_ruby_rubocop_exec = 'RBENV_VERSION=2.1.5 /Users/sasajimay/.rbenv/shims/rubocop'
 " Installation check.
+" language setting
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle "elixir-lang/vim-elixir"
+NeoBundle 'fatih/vim-go'
 
 if neobundle#exists_not_installed_bundles()
     echomsg 'Not installed bundles : ' .
