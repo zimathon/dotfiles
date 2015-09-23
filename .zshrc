@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="theunraveler"
+ZSH_THEME="wezm"
 export LANG=ja_JP.UTF-8
 
 # User configuration
@@ -109,4 +109,3 @@ add-zsh-hook preexec tmux_ssh_preexec
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-source ~/.tmuxinator/tmuxinator.zsh
