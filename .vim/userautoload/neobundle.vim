@@ -36,6 +36,13 @@ endif
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
+NeoBundle 'Shougo/vimfiler'
+""セーフモードを無効にした状態で起動する
+let g:vimfiler_safe_mode_by_default = 0
+"現在開いているバッファをIDE風に開く
+ nnoremap <silent> <Leader>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+" Use vimfiler instead of default filer.
+let g:vimfiler_as_default_explorer = 1
 "------------------------------------
 " neosnippet
 "------------------------------------
@@ -70,116 +77,6 @@ nnoremap <silent><Space>e         :<C-U>NeoSnippetEdit -split<CR>
 smap <silent><C-F>                <Plug>(neosnippet_expand_or_jump)
 " xmap <silent>o                    <Plug>(neosnippet_register_oneshot_snippet)
 "}}
-
-NeoBundleLazy 'tpope/vim-rails', { 'autoload' : {
-      \ 'filetypes' : ['haml', 'ruby', 'eruby'] }}
-NeoBundle 'vim-ruby/vim-ruby'
-
-NeoBundleLazy 'alpaca-tc/vim-endwise.git' ,{
-      \ 'autoload' : {
-      \   'insert' : 1,
-      \ }}
-
-NeoBundleLazy 'edsono/vim-matchit', { 'autoload' : {
-      \ 'filetypes': 'ruby',
-      \ 'mappings' : ['nx', '%'] }}
-
-NeoBundle 'Shougo/unite.vim'
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 200
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-nnoremap <silent> <C-u>y :<C-u>Unite history/yank<CR>
-nnoremap <silent> <C-u>b :<C-u>Unite buffer<CR>
-nnoremap <silent> <C-u>f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> <C-u>nf :<C-u>Unite file file/new -buffer-name=file<CR>
-nnoremap <silent> <C-u>re :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> <C-u>u :<C-u>Unite file_mru buffer<CR>
-nnoremap <silent> <C-u>ud :<C-u>Unite directory_mru buffer<CR>
-nnoremap <silent> <C-u>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-nnoremap <silent> <C-u>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-nnoremap <silent> <C-u>r  :<C-u>UniteResume search-buffer<CR>
-"rails setting must rails root vim start
-nnoremap <silent> <C-u>ff  :<C-u>Unite file<CR>
-nnoremap <silent> <C-u>c :<C-u>Unite file_rec/async:app/controllers/ <CR>
-nnoremap <silent> <C-u>nc :<C-u>Unite file file/new -input=app/controllers/ <CR>
-nnoremap <silent> <C-u>m :<C-u>Unite file_rec/async:app/models/ <CR>
-nnoremap <silent> <C-u>nm :<C-u>Unite file file/new -input=app/models/ <CR>
-nnoremap <silent> <C-u>v :<C-u>Unite file_rec/async:app/views/ <CR>
-nnoremap <silent> <C-u>nv :<C-u>Unite file file/new -input=app/views/ <CR>
-nnoremap <silent> <C-u>s :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
-nnoremap <silent> <C-u>ns :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
-nnoremap <silent> <C-u>j :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
-nnoremap <silent> <C-u>nj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
-nnoremap <silent> <C-u>o :<C-u>Unite file_rec/async:config/ <CR>
-nnoremap <silent> <C-u>no :<C-u>Unite file file/new -input=config/ <CR>
-nnoremap <silent> <C-u>d :<C-u>Unite file_rec/async:db/migrate/ <CR>
-nnoremap <silent> <C-u>nd :<C-u>Unite file file/new -input=db/migrate/ <CR>
-nnoremap <silent> <C-u>l :<C-u>Unite file_rec/async:lib/ <CR>
-nnoremap <silent> <C-u>nl :<C-u>Unite file file/new -input=lib/ <CR>
-nnoremap <silent> <C-u>t :<C-u>Unite file_rec/async:spec/ <CR>
-nnoremap <silent> <C-u>nt :<C-u>Unite file file/new -input=spec/ <CR>
-nnoremap <silent> <C-u>h :<C-u>Unite file_rec/async:app/helpers/ <CR>
-nnoremap <silent> <C-u>nh :<C-u>Unite file file/new -input=app/helpers/ <CR>
-nnoremap <silent> <C-u>se :<C-u>Unite file_rec/async:db/seeds.rb <CR>
-nnoremap <silent> <C-u>p :<C-u>Unite file_rec/async:app/presenters/ <CR>
-nnoremap <silent> <C-u>np :<C-u>Unite file file/new -input=app/presenters/ <CR>
-" ファイルを開く時、ウィンドウを分割して開く
-au FileType unite nnoremap <silent> <buffer> <expr> <C-S> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-S> unite#do_action('split')
-au FileType unite nnoremap <silent> <buffer> <expr> <C-V> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-> unite#do_action('vsplit')
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-"------------------------------------
-" Unite-rails.vim
-"------------------------------------
-NeoBundleLazy 'basyura/unite-rails', {
-      \ 'depends' : 'Shougo/unite.vim',
-      \ 'autoload' : {
-      \   'unite_sources' : [
-      \     'rails/bundle', 'rails/bundled_gem', 'rails/config',
-      \     'rails/controller', 'rails/db', 'rails/destroy', 'rails/features',
-      \     'rails/gem', 'rails/gemfile', 'rails/generate', 'rails/git', 'rails/helper',
-      \     'rails/heroku', 'rails/initializer', 'rails/javascript', 'rails/lib', 'rails/log',
-      \     'rails/mailer', 'rails/model', 'rails/rake', 'rails/route', 'rails/schema', 'rails/spec',
-      \     'rails/stylesheet', 'rails/view'
-      \   ]
-      \ }}
-"{{{
-function! UniteRailsSetting()
-"  nnoremap <silent><C-u>v           :<C-U>Unite rails/view<CR>
-"  nnoremap <silent><C-u>m           :<C-U>Unite rails/model<CR>
-"  nnoremap <buffer><C-u>c           :<C-U>Unite rails/controller<CR>
-"  nnoremap <buffer><C-u>o           :<C-U>Unite rails/config<CR>
-"  nnoremap <buffer><C-u>s           :<C-U>Unite rails/spec<CR>
-"  nnoremap <buffer><C-u>d           :<C-U>Unite rails/db -input=migrate<CR>
-"  nnoremap <buffer><C-u>l           :<C-U>Unite rails/lib<CR>
-"  nnoremap <buffer><expr><C-u>g     ':e '.b:rails_root.'/Gemfile<CR>'
-"  nnoremap <buffer><expr><C-u>r     ':e '.b:rails_root.'/config/routes.rb<CR>'
-"  nnoremap <buffer><expr><C-u>se    ':e '.b:rails_root.'/db/seeds.rb<CR>'
-"  nnoremap <buffer><C-u>ra          :<C-U>Unite rails/rake<CR>
-"  nnoremap <buffer><C-u>h           :<C-U>Unite rails/heroku<CR>
-endfunction
-aug MyAutoCmd
-  au User Rails call UniteRailsSetting()
-aug END
-"}}}
-NeoBundleLazy 'tsukkee/unite-tag', {
-      \ 'depends' : ['Shougo/unite.vim'],
-      \ 'autoload' : {
-      \   'unite_sources' : ['tag', 'tag/file', 'tag/include']
-      \ }}
-
-NeoBundle 'romanvbabenko/rails.vim'
-let g:rails_statusline = 0
 
 NeoBundle 'Shougo/neomru.vim'
 NeoBundleLazy 'taka84u9/vim-ref-ri', {
@@ -235,7 +132,6 @@ augroup EmmitVim
   autocmd FileType * let g:user_emmet_settings.indentation = '               '[:&tabstop]
 augroup END
 
-NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'flazz/vim-colorschemes'
@@ -246,20 +142,12 @@ NeoBundle 'tpope/vim-fugitive.git'
 set statusline+=%{fugitive#statusline()}
 set diffopt+=vertical
 
-NeoBundle 'gregsexton/gitv.git'
-" golang
-NeoBundle 'airblade/vim-gitgutter'
-nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
-nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
-
 NeoBundle 'vim-scripts/vim-auto-save'
 let g:auto_save = 1
 let g:session_autoload = 'no'                                                      
 let g:session_autosave = 'yes'                                                     
 let g:session_autosave_periodic = 3  
 let g:auto_save_in_insert_mode = 0
-" データベース操作
-NeoBundle 'vim-scripts/dbext.vim'
 NeoBundle 'errormarker.vim' 
 
 function! s:separate_defenition_to_each_filetypes(ft_dictionary) "{{{
@@ -278,118 +166,11 @@ function! s:separate_defenition_to_each_filetypes(ft_dictionary) "{{{
   return result
 endfunction"}}}
 
-" ------------------------------------
-" switch.vim
-" ------------------------------------
-NeoBundle 'AndrewRadev/switch.vim'
-nnoremap - :Switch<CR>
-let s:switch_definition = {
-      \ '*': [
-      \   ['is', 'are']
-      \ ],
-      \ 'ruby,eruby,haml' : [
-      \   ['if', 'unless'],
-      \   ['while', 'until'],
-      \   ['.blank?', '.present?'],
-      \   ['include', 'extend'],
-      \   ['class', 'module'],
-      \   ['.inject', '.delete_if'],
-      \   ['.map', '.map!'],
-      \   ['attr_accessor', 'attr_reader', 'attr_writer'],
-      \ ],
-      \ 'Gemfile,Berksfile' : [
-      \   ['=', '<', '<=', '>', '>=', '~>'],
-      \ ],
-      \ 'ruby.application_template' : [
-      \   ['yes?', 'no?'],
-      \   ['lib', 'initializer', 'file', 'vendor', 'rakefile'],
-      \   ['controller', 'model', 'view', 'migration', 'scaffold'],
-      \ ],
-      \ 'erb,html,php' : [
-      \   { '<!--\([a-zA-Z0-9 /]\+\)--></\(div\|ul\|li\|a\)>' : '</\2><!--\1-->' },
-      \ ],
-      \ 'rails' : [
-      \   [100, ':continue', ':information'],
-      \   [101, ':switching_protocols'],
-      \   [102, ':processing'],
-      \   [200, ':ok', ':success'],
-      \   [201, ':created'],
-      \   [202, ':accepted'],
-      \   [203, ':non_authoritative_information'],
-      \   [204, ':no_content'],
-      \   [205, ':reset_content'],
-      \   [206, ':partial_content'],
-      \   [207, ':multi_status'],
-      \   [208, ':already_reported'],
-      \   [226, ':im_used'],
-      \   [300, ':multiple_choices'],
-      \   [301, ':moved_permanently'],
-      \   [302, ':found'],
-      \   [303, ':see_other'],
-      \   [304, ':not_modified'],
-      \   [305, ':use_proxy'],
-      \   [306, ':reserved'],
-      \   [307, ':temporary_redirect'],
-      \   [308, ':permanent_redirect'],
-      \   [400, ':bad_request'],
-      \   [401, ':unauthorized'],
-      \   [402, ':payment_required'],
-      \   [403, ':forbidden'],
-      \   [404, ':not_found'],
-      \   [405, ':method_not_allowed'],
-      \   [406, ':not_acceptable'],
-      \   [407, ':proxy_authentication_required'],
-      \   [408, ':request_timeout'],
-      \   [409, ':conflict'],
-      \   [410, ':gone'],
-      \   [411, ':length_required'],
-      \   [412, ':precondition_failed'],
-      \   [413, ':request_entity_too_large'],
-      \   [414, ':request_uri_too_long'],
-      \   [415, ':unsupported_media_type'],
-      \   [416, ':requested_range_not_satisfiable'],
-      \   [417, ':expectation_failed'],
-      \   [422, ':unprocessable_entity'],
-      \   [423, ':precondition_required'],
-      \   [424, ':too_many_requests'],
-      \   [426, ':request_header_fields_too_large'],
-      \   [500, ':internal_server_error'],
-      \   [501, ':not_implemented'],
-      \   [502, ':bad_gateway'],
-      \   [503, ':service_unavailable'],
-      \   [504, ':gateway_timeout'],
-      \   [505, ':http_version_not_supported'],
-      \   [506, ':variant_also_negotiates'],
-      \   [507, ':insufficient_storage'],
-      \   [508, ':loop_detected'],
-      \   [510, ':not_extended'],
-      \   [511, ':network_authentication_required'],
-      \ ],
-      \ 'rspec': [
-      \   ['describe', 'context', 'specific', 'example'],
-      \   ['before', 'after'],
-      \   ['be_true', 'be_false'],
-      \   ['get', 'post', 'put', 'delete'],
-      \   ['==', 'eql', 'equal'],
-      \   { '\.should_not': '\.should' },
-      \   ['\.to_not', '\.to'],
-      \   { '\([^. ]\+\)\.should\(_not\|\)': 'expect(\1)\.to\2' },
-      \   { 'expect(\([^. ]\+\))\.to\(_not\|\)': '\1.should\2' },
-      \ ],
-      \ 'markdown' : [
-      \   ['[ ]', '[x]']
-      \ ]
-      \ }
- 
-nnoremap + :call switch#Switch(s:switch_definition)<cr>
-
 NeoBundle 'scrooloose/syntastic'
 let g:syntastic_ruby_rubocop_exec = 'RBENV_VERSION=2.1.5 /Users/sasajimay/.rbenv/shims/rubocop'
 " Installation check.
 " language setting
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle "elixir-lang/vim-elixir"
-NeoBundle 'fatih/vim-go'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 if neobundle#exists_not_installed_bundles()
     echomsg 'Not installed bundles : ' .

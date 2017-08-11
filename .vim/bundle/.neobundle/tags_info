@@ -19,6 +19,7 @@ unite-rails
 unite-tag
 unite.vim
 vim-auto-save
+vim-coffee-script
 vim-colorschemes
 vim-dispatch
 vim-easymotion
@@ -28,6 +29,7 @@ vim-fugitive
 vim-gitgutter
 vim-go
 vim-hybrid
+vim-indent-guides
 vim-javascript
 vim-matchit
 vim-rails
@@ -36,4 +38,5 @@ vim-ref-ri
 vim-ruby
 vim-scala
 vim-tomorrow-theme
+vimfiler
 vimproc

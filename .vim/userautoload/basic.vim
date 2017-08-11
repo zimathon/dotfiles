@@ -10,12 +10,18 @@ set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮" 不可視文字の表�
 set expandtab      "タブ入力を複数の空白入力に置き換える
 set tabstop=2      "画面上でタブ文字が占める幅
 set shiftwidth=2
+set softtabstop=2  "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+" vimにcoffeeファイルタイプを認識させる
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" インデントを設定
+" autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 augroup vimrc
         autocmd! FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
         autocmd! FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
         autocmd! FileType css  setlocal shiftwidth=4 tabstop=2 softtabstop=2
+        autocmd! FileType python  setlocal shiftwidth=4 tabstop=4 softtabstop=4
+        autocmd! FileType coffee  setlocal shiftwidth=4 tabstop=4 softtabstop=4
 augroup END
-set softtabstop=2  "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set hlsearch       "検索文字列をハイライトする
 set incsearch      "インクリメンタルサーチを行う
 set ignorecase     "大文字と小文字を区別しない
