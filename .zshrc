@@ -1,6 +1,7 @@
+zmodload zsh/zprof && zprof
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="wezm"
+ZSH_THEME="ys"
 export LANG=ja_JP.UTF-8
 
 # User configuration
@@ -13,38 +14,24 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=~/Library/Python/2.7/bin:$PATH
 export JAVA_HOME=`/usr/libexec/java_home`
 
-setopt share_history #履歴を複数の端末で共有する
-setopt hist_ignore_dups #直前と同じコマンドの場合は履歴に追加しない
-setopt hist_ignore_all_dups #重複するコマンドは古い法を削除する
-setopt append_history #複数のzshを同時に使用した際に履歴ファイルを上書きせず追加する
-
 eval "$(rbenv init -)"
 
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vi='vim'
+alias vf='vim +VimFilerExplorer'
 alias lgp='lgtm -m | pbcopy'
 alias wintounix='tr \\ /'
 #open command 
 alias xo='open -a /Applications/Xcode.app'
 alias rdp='open -a Remote\ Desktop\ Connection'
-srvcd() {
-  cd "$(echo "$1" | tr \\ /)"
-}
-srvopen() {
-    open "$(echo "$1" | tr \\ /)"
-}
 # git,hub
-function git(){hub "$@"} # zsh
+# function git(){hub "$@"} # zsh
 alias gpr="git pull-request"
 alias gs="git status -sb"
 alias gvd='git difftool --tool=vimdiff --no-prompt'
 
 plugins=(git ruby gem)
 source $ZSH/oh-my-zsh.sh
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # peco
 if [ -x "`which peco`" ]; then
@@ -109,3 +96,16 @@ add-zsh-hook preexec tmux_ssh_preexec
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/sasajimay/var/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+# source '/Users/sasajimay/var/google-cloud-sdk/completion.zsh.inc'
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+if (which zprof > /dev/null 2>&1) ;then
+    zprof
+  fi
+fi
