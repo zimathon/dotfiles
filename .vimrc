@@ -1,4 +1,3 @@
-"Vi互換OFF
 set encoding=utf-8
 set nocompatible
 set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -14,11 +13,6 @@ set runtimepath+=~/.vim/
 runtime! userautoload/*.vim
 
 call neobundle#end()
-
-augroup quickfixopen
-  autocmd!
-  autocmd QuickfixCmdPost make cw
-augroup END
 
 " ファイル形式別プラグインのロードを有効化
 filetype plugin on
