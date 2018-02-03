@@ -49,7 +49,7 @@ set wildmenu        " Better command-line completion
 set showcmd         " Show partial commands in the last line of the screen
 set hlsearch        " Highlight searches (use <C-L> to temporarily turn off highlighting; see he
 set ruler
-set clipboard+=unnamed,autoselect
+set clipboard+=unnamedplus,autoselect
 augroup auto_comment_off
   autocmd!
   autocmd BufEnter * setlocal formatoptions-=r
