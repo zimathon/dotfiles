@@ -1,20 +1,37 @@
-zmodload zsh/zprof && zprof
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="ys"
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
 export LANG=ja_JP.UTF-8
+# メモリに保存される履歴の件数
+export HISTSIZE=1000
+# 重複を記録しない
+setopt hist_ignore_dups
+# 開始と終了を記録
+setopt EXTENDED_HISTORY
 
 # User configuration
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Users/sasajimay/.nodebrew/current/bin:/usr/local/mysql/bin:/usr/local/opt/ruby/bin:/usr/bin/rails"
+#export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Users/sasajimay/.nodebrew/current/bin:/usr/local/mysql/bin:/usr/local/opt/ruby/bin:/usr/bin/rails"
 export GOPATH=$HOME/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PATH=~/Library/Python/2.7/bin:$PATH
-export JAVA_HOME=`/usr/libexec/java_home`
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
+rbenv() {
+  eval "$(command rbenv init -)"
+  rbenv "$@"
+}
 
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -26,12 +43,22 @@ alias xo='open -a /Applications/Xcode.app'
 alias rdp='open -a Remote\ Desktop\ Connection'
 # git,hub
 # function git(){hub "$@"} # zsh
+alias g=git
+alias ga='git add'
+alias gb='git branch'
 alias gpr="git pull-request"
-alias gs="git status -sb"
+alias gst="git status -sb"
+alias gd="git diff"
+alias gdb='git diff -b'
+alias gdc='git diff --cached'
+alias gco="git checkout"
 alias gvd='git difftool --tool=vimdiff --no-prompt'
+alias gcmsg='git commit -m'
+alias glo='git log --oneline --decorate --color'
+alias globurl='noglob urlglobber '
+alias glog='git log --oneline --decorate --color --graph'
 
 plugins=(git ruby gem)
-source $ZSH/oh-my-zsh.sh
 
 # peco
 if [ -x "`which peco`" ]; then
@@ -94,18 +121,8 @@ function tmux_ssh_preexec() {
 }
 add-zsh-hook preexec tmux_ssh_preexec
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/sasajimay/var/google-cloud-sdk/path.zsh.inc'
-
 # The next line enables shell command completion for gcloud.
 # source '/Users/sasajimay/var/google-cloud-sdk/completion.zsh.inc'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-if (which zprof > /dev/null 2>&1) ;then
-    zprof
-  fi
-fi

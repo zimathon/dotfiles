@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/sasajimay/github.com/zimathon-sandbox/elixir/sample_app/web'
 let g:netrw_dirhist_2='/Users/sasajimay/github.com/zimathon-sandbox/elixir/sample_app/test'
 let g:netrw_dirhist_3='/Users/sasajimay/github.com/zimathon-sandbox/elixir/sample_app/test/support'
 let g:netrw_dirhist_4='/Users/sasajimay/dotfiles/.vim/userautoload'
+let g:netrw_dirhist_5='/Users/sasajimay/dotfiles/.vim'
+let g:netrw_dirhist_6='/Users/sasajimay/github.com/ikyucom/ikyu-marketing-cloud2/env/development'
